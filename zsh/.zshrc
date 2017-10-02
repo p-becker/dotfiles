@@ -96,6 +96,15 @@ export PATH="$(brew --prefix vim)/bin:$PATH"
 alias b="bundle exec"
 alias brc="bundle exec rails console"
 
+# always ls after cd
+function cd() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}" && ls
+}
+
 source "$DOTFILES_PATH"/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
