@@ -109,9 +109,10 @@ source "$DOTFILES_PATH"/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-export NVM_DIR="/Users/becker/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# https://dougblack.io/words/zsh-vi-mode.html
 # vi mode instead of emacs mode
 bindkey -v
 function zle-line-init zle-keymap-select {
