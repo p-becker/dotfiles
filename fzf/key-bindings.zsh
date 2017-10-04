@@ -52,7 +52,7 @@ fzf-cd-widget() {
   typeset -f zle-line-init >/dev/null && zle zle-line-init
   return $ret
 }
-zle     -N   Ffzf-cd-widget
+zle     -N    fzf-cd-widget
 bindkey '\ec' fzf-cd-widget
 
 # CTRL-R - Paste the selected command from history into the command line
