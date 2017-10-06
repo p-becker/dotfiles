@@ -1,6 +1,7 @@
 let mapleader = ","
 
-set number
+set relativenumber
+
 let dotfiles_path = $DOTFILES_PATH
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
