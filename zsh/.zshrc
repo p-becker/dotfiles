@@ -96,6 +96,9 @@ export PATH="$(brew --prefix vim)/bin:$PATH"
 alias b="bundle exec"
 alias brc="bundle exec rails console"
 
+alias ctags="/usr/local/opt/ctags/bin/ctags"
+export PATH="/usr/local/opt/ctags/bin:$PATH"
+
 # always ls after cd
 function cd() {
     new_directory="$*";
@@ -105,12 +108,11 @@ function cd() {
     builtin cd "${new_directory}" && ls
 }
 
-source "$DOTFILES_PATH"/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+source "$DOTFILES_PATH/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# nvm 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # https://dougblack.io/words/zsh-vi-mode.html
 # vi mode instead of emacs mode
@@ -135,3 +137,7 @@ bindkey '^r' history-incremental-search-backward
 
 [ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
 
+# Rbenv
+export RBENV_ROOT=~/.rbenv
+export PATH=$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init -)"
