@@ -62,6 +62,8 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'tpope/vim-surround'
+
 " Initialize plugin system
 call plug#end()
 
