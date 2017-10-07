@@ -112,3 +112,13 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 " Always display filename in status bar
 set statusline+=%f
 set laststatus=2
+
+" http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
