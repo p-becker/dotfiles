@@ -1,6 +1,7 @@
 let mapleader = ","
 
 set relativenumber
+set hlsearch
 
 let dotfiles_path = $DOTFILES_PATH
 " Specify a directory for plugins
