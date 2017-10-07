@@ -8,3 +8,6 @@
 [submodule "zsh/plugins/oh-my-zsh"]
 	path = zsh/plugins/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "color-schemes"]
+	path = color-schemes
+	url = https://github.com/chrishunt/color-schemes.git
