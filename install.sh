@@ -21,6 +21,11 @@ for f in "${formulas[@]}"; do
 		echo "$f is already installed."
 	fi
 done
+
+mkdir -p ~/.vim/colors
+cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
+open color-schemes/railscasts/base16-railscasts-custom.dark.256.itermcolors
+
 echo "Please replace the contents of your ~/.zshrc with this:"
 printf "source $PWD/zsh/.zshrc\n"
 echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
