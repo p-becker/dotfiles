@@ -101,3 +101,7 @@ highlight Visual       ctermbg=3   ctermfg=0
 highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=3   ctermfg=1
 highlight SpellBad     ctermbg=0   ctermfg=1			
+
+" Always display filename in status bar
+set statusline+=%f
+set laststatus=2
