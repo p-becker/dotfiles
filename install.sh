@@ -1,5 +1,5 @@
 git clone https://github.com/bhilburn/powerlevel9k.git zsh/plugins/oh-my-zsh/custom/themes/powerlevel9k
-
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim  -c "PlugInstall" -c "qa"
