@@ -27,11 +27,11 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   nnoremap <silent> <leader>b :Buffers<CR>
   nnoremap <silent> <leader>w :Windows<CR>
   nnoremap <silent> <leader>; :BLines<CR>
-  nnoremap <silent> <leader>o :BTags<CR>
+  " nnoremap <silent> <leader>o :BTags<CR>
   nnoremap <silent> <leader>t :Tags<CR>
-  nnoremap <silent> <leader>r :History<CR>
+  nnoremap <silent> <leader>h :History<CR>
   nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
-  nnoremap <silent> <leader>. :AgIn 
+  " nnoremap <silent> <leader>. :AgIn 
 
   nnoremap <silent> K :call SearchWordWithAg()<CR>
   vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
@@ -69,8 +69,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-surround'
 
+Plug 'thoughtbot/vim-rspec'
 " Initialize plugin system
 call plug#end()
+
+" RSpec.vim mappings
+map <Leader>rc :call RunCurrentSpecFile()<CR>
+map <Leader>rt :call RunNearestSpec()<CR>
+map <Leader>rr :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
 " Customize vim.notes
 let g:notes_directories = ['~/Dropbox/notes']
