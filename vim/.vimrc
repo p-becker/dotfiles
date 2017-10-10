@@ -14,10 +14,6 @@ call plug#begin(dotfiles_path.'/vim/plugins/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
 
-" Note taking
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-
 " Installed via homebrew
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " {{{
@@ -78,9 +74,6 @@ map <Leader>rc :call RunCurrentSpecFile()<CR>
 map <Leader>rt :call RunNearestSpec()<CR>
 map <Leader>rr :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
-
-" Customize vim.notes
-let g:notes_directories = ['~/Dropbox/notes']
 
 " KEYBINDINGS
 map <C-n> :NERDTreeToggle<CR>
