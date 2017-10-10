@@ -122,3 +122,9 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
+" Improve performance
+" Use old regex engine to fix lag when editing ruby files
+set re=1
+set ttyfast
+set lazyredraw
