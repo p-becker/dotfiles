@@ -128,3 +128,5 @@ endif
 set re=1
 set ttyfast
 set lazyredraw
+" Nice, but disable this for more speed
+set cursorline
