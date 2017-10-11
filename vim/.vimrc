@@ -64,17 +64,18 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-surround'
 
-Plug 'thoughtbot/vim-rspec'
+Plug 'janko-m/vim-test'
 " Initialize plugin system
 call plug#end()
 
-" RSpec.vim mappings
-map <Leader>rc :call RunCurrentSpecFile()<CR>
-map <Leader>rt :call RunNearestSpec()<CR>
-map <Leader>rr :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
-
 " KEYBINDINGS
+" vim-test
+nmap <silent> <leader>rt :TestNearest<CR>
+nmap <silent> <leader>rT :TestFile<CR>
+nmap <silent> <leader>ra :TestSuite<CR>
+nmap <silent> <leader>rr :TestLast<CR>
+nmap <silent> <leader>rv :TestVisit<CR>
+
 map <C-n> :NERDTreeToggle<CR>
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
