@@ -1,7 +1,6 @@
 let mapleader = ","
 
 set relativenumber
-set hlsearch
 
 let dotfiles_path = $DOTFILES_PATH
 " Specify a directory for plugins
@@ -125,8 +124,44 @@ endif
 
 " Improve performance
 " Use old regex engine to fix lag when editing ruby files
-set re=1
+autocmd FileType ruby setlocal re=1
 set ttyfast
 set lazyredraw
 " Nice, but disable this for more speed
 set cursorline
+" https://github.com/scrooloose/vimfiles/blob/master/vimrc
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+"display tabs and trailing spaces
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
+set hlsearch
+set incsearch   "find the next match as we type the search
+
+set wrap        "dont wrap lines
+set linebreak   "wrap lines at convenient points
+
+if v:version >= 703
+    "undo settings
+    " https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+    " Let's save undo info!
+    if !isdirectory($HOME."/.vim")
+        call mkdir($HOME."/.vim", "", 0770)
+    endif
+    if !isdirectory($HOME."/.vim/undo-dir")
+        call mkdir($HOME."/.vim/undo-dir", "", 0700)
+    endif
+    set undodir=~/.vim/undo-dir
+    set undofile
+
+    set colorcolumn=+1 "mark the ideal max text width
+endif
+
+set directory=~/.vim/swapfiles//
+
+"default indent settings
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
