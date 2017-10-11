@@ -157,23 +157,23 @@ set incsearch   "find the next match as we type the search
 set wrap        "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
-if v:version >= 703
-    "undo settings
-    " https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
-    " Let's save undo info!
-    if !isdirectory($HOME."/.vim")
-        call mkdir($HOME."/.vim", "", 0770)
-    endif
-    if !isdirectory($HOME."/.vim/undo-dir")
-        call mkdir($HOME."/.vim/undo-dir", "", 0700)
-    endif
-    set undodir=~/.vim/undo-dir
-    set undofile
-
-    set colorcolumn=+1 "mark the ideal max text width
+"undo settings
+" https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
 endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+if !isdirectory($HOME."/.vim/swapfiles")
+    call mkdir($HOME."/.vim/swapfiles", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
 
 set directory=~/.vim/swapfiles//
+
+set colorcolumn=+1 "mark the ideal max text width
 
 "default indent settings
 set shiftwidth=4
