@@ -23,7 +23,6 @@ for f in "${formulas[@]}"; do
 done
 
 mkdir -p ~/.vim/colors
-mkdir ~/.vim/swapfiles/
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
 open color-schemes/railscasts/base16-railscasts-custom.dark.256.itermcolors
