@@ -185,7 +185,7 @@ set directory=~/.vim/swapfiles//
 set colorcolumn=+1 "mark the ideal max text width
 
 "default indent settings
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
