@@ -66,9 +66,18 @@ Plug 'tpope/vim-surround'
 
 Plug 'vim-syntastic/syntastic'
 
+Plug 'ruanyl/coverage.vim'
+
 Plug 'janko-m/vim-test'
 " Initialize plugin system
 call plug#end()
+
+" coverage.vim
+let g:coverage_json_report_path = 'coverage/coverage-final.json'
+let g:coverage_sign_covered = '⦿'
+let g:coverage_interval = 5000
+let g:coverage_show_covered = 0
+let g:coverage_show_uncovered = 1
 
 " Syntastic
 set statusline+=%#warningmsg#
