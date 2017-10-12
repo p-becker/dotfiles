@@ -79,6 +79,11 @@ let g:coverage_interval = 5000
 let g:coverage_show_covered = 0
 let g:coverage_show_uncovered = 1
 
+"modified flag
+set statusline+=%#warningmsg#
+set statusline+=%m
+set statusline+=%*
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
