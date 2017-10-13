@@ -4,7 +4,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim  -c "PlugInstall" -c "qa"
 
-declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "vim")
+declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "vim" "ripgrep")
 
 ## now loop through the above array
 for f in "${formulas[@]}"; do
