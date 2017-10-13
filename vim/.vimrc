@@ -217,6 +217,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"make Y consistent with C and D
+nnoremap Y y$
+
 " Split down and to the right
 set splitbelow
 set splitright
