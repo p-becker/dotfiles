@@ -197,11 +197,11 @@ let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
 
 " KEYBINDINGS
 " vim-test
-nmap <silent> <leader>rt :TestNearest<CR>
-nmap <silent> <leader>rT :TestFile<CR>
-nmap <silent> <leader>ra :TestSuite<CR>
-nmap <silent> <leader>rr :TestLast<CR>
-nmap <silent> <leader>rv :TestVisit<CR>
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 " How can I close vim if the only window left open is a NERDTree?
