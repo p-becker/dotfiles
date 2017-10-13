@@ -294,3 +294,24 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
+
+"when copying/pasting from the term into :e from a git diff or rspec or
+"similar we edit things like
+"
+"./app/models/foo.rb:10:in
+"
+"Save the time of stripping trailing shit and just make this edit and go to
+"line 10.
+autocmd bufenter * call s:checkForLnum()
+function! s:checkForLnum() abort
+    let fname = expand("%:f")
+    if fname =~ ':\d\+\(:.*\)\?$'
+        let lnum = substitute(fname, '^.*:\(\d\+\)\(:.*\)\?$', '\1', '')
+        let realFname = substitute(fname, '^\(.*\):\d\+\(:.*\)\?$', '\1', '')
+        bwipeout
+        exec "edit " . realFname
+        doautocmd bufread
+        doautocmd bufreadpre
+        call cursor(lnum, 1)
+    endif
+  endfunction
