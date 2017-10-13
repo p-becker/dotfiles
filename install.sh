@@ -4,7 +4,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim  -c "PlugInstall" -c "qa"
 
-declare -a formulas=("zsh" "fzf" "tmux" "rbenv")
+declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "vim")
 
 ## now loop through the above array
 for f in "${formulas[@]}"; do
@@ -23,6 +23,7 @@ for f in "${formulas[@]}"; do
 done
 
 mkdir -p ~/.vim/colors
+git config --global core.editor $(which vim)
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
 open color-schemes/railscasts/base16-railscasts-custom.dark.256.itermcolors
