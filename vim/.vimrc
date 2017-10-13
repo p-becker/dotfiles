@@ -69,8 +69,14 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ruanyl/coverage.vim'
 
 Plug 'janko-m/vim-test'
+
+Plug 'vim-scripts/vim-auto-save'
 " Initialize plugin system
 call plug#end()
+" autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+let g:auto_save_silent = 1  " do not display the auto-save notification
 
 " coverage.vim
 let g:coverage_json_report_path = 'coverage/coverage-final.json'
