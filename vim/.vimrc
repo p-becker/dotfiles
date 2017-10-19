@@ -109,7 +109,7 @@ set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
 
-set statusline+=%{StatuslineTrailingSpaceWarning()}
+" set statusline+=%{StatuslineTrailingSpaceWarning()}
 
 "display a warning if &paste is set
 set statusline+=%#error#
@@ -129,7 +129,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "recalculate the trailing whitespace warning when idle, and after saving
-autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+" autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 " Search for trailing whitespace
 nnoremap <leader>ws /\s\+$<CR>
 " Remove all trailing whitespace
