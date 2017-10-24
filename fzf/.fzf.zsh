@@ -10,5 +10,5 @@ fi
 
 # Key bindings
 # ------------
-source "$DOTFILES_PATH/fzf/key-bindings.zsh" 
+source "$DOTFILES_PATH/fzf/key-bindings.zsh"
 

@@ -129,7 +129,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "recalculate the trailing whitespace warning when idle, and after saving
-" autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 " Search for trailing whitespace
 nnoremap <leader>ws /\s\+$<CR>
 " Remove all trailing whitespace
@@ -338,5 +338,4 @@ endfunction
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)dd
-
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
