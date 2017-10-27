@@ -341,5 +341,8 @@ command! -nargs=1 Silent
 nnoremap <leader>gt :Silent tig<CR>
 nnoremap <leader>gg :Silent tig %<CR>
 
+" Git WIP push
+nnoremap <leader>gp :Silent git add .; git commit -m 'WIP'<CR> :execute '!git push'<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
