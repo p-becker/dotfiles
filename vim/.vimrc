@@ -329,5 +329,15 @@ function! s:checkForLnum() abort
     endif
 endfunction
 
+" Allows skipping 'Press ENTER or type command to continue' message after
+" external commands
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
+
+" Tig
+nnoremap <leader>gt :Silent tig<CR>
+nnoremap <leader>gg :Silent tig %<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
