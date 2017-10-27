@@ -338,12 +338,16 @@ command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
 
+" GIT STUFF <leader>g
 " Tig
 nnoremap <leader>gt :Silent tig<CR>
 nnoremap <leader>gg :Silent tig %<CR>
 
-" Git WIP push
-nnoremap <leader>gp :Silent git add .; git commit -m 'WIP'<CR> :execute '!git push'<CR>
+" Git commit with message
+nnoremap <leader>gc :Silent git add .; git commit<CR> :execute '!git push'<CR>
+
+" Git WIP commit and push
+nnoremap <leader>gw :Silent git add .; git commit -m 'WIP'<CR> :execute '!git push'<CR>
 
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
