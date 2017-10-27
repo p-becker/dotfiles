@@ -19,21 +19,22 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " {{{
   let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
-  nnoremap <silent> <leader>f :Files<CR>
-  nnoremap <silent> <leader>b :Buffers<CR>
-  nnoremap <silent> <leader>w :Windows<CR>
-  nnoremap <silent> <leader>; :BLines<CR>
+  " FIND STUFF <leader>f
+  nnoremap <silent> <leader>ff :Files<CR>
+  nnoremap <silent> <leader>fb :Buffers<CR>
+  nnoremap <silent> <leader>fw :Windows<CR>
+  nnoremap <silent> <leader>f; :BLines<CR>
   " nnoremap <silent> <leader>o :BTags<CR>
-  nnoremap <silent> <leader>t :Tags<CR>
-  nnoremap <silent> <leader>h :History<CR>
+  nnoremap <silent> <leader>ft :Tags<CR>
+  nnoremap <silent> <leader>fh :History<CR>
   "nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
   nnoremap <silent> <leader>/ :execute 'Rg '<CR>
   " nnoremap <silent> <leader>. :AgIn
 
   nnoremap <silent> K :call SearchWordWithAg()<CR>
   vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
-  nnoremap <silent> <leader>gc :Commits<CR>
-  nnoremap <silent> <leader>gb :BCommits<CR>
+  nnoremap <silent> <leader>fgc :Commits<CR>
+  nnoremap <silent> <leader>fgb :BCommits<CR>
   " Currently unused and should be remapped to prevent slowing down
   " <leader>f
   " nnoremap <silent> <leader>ft :Filetypes<CR>
