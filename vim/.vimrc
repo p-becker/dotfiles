@@ -349,5 +349,8 @@ nnoremap <leader>gc :Silent git add .; git commit<CR> :execute '!git push'<CR>
 " Git WIP commit and push
 nnoremap <leader>gw :Silent git add .; git commit -m 'WIP'<CR> :execute '!git push'<CR>
 
+" Git diff with fugitive
+nnoremap <leader>gd :Gdiff<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
