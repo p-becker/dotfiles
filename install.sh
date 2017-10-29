@@ -10,11 +10,11 @@ declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "vim" "ripgrep")
 for f in "${formulas[@]}"; do
 	if ! command -v "$f" >/dev/null; then
 	       while true; do
-		read -p "Do you wish to install $f?" yn
+		read -p "Do you wish to install $f? [Yy/Nn]: " yn
 		case $yn in
 			[Yy]* ) brew install "$f"; break;;
 			[Nn]* ) exit;;
-			* ) echo "Please answer yes or no.";;
+			* ) echo "Please answer yes [Yy] or no [Nn].";;
 		esac
 		done
 	else
