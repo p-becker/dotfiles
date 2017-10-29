@@ -26,7 +26,7 @@ mkdir -p ~/.vim/colors
 git config --global core.editor $(which vim)
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
-open color-schemes/railscasts/base16-railscasts-custom.dark.256.itermcolors
+open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
 echo "---"
 echo "Please replace the contents of your ~/.zshrc with this:"
 printf "source $PWD/zsh/.zshrc\n"
