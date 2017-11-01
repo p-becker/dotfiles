@@ -23,7 +23,9 @@ for f in "${formulas[@]}"; do
 done
 
 mkdir -p ~/.vim/colors
+
 git config --global core.editor $(which vim)
+git config --global core.excludesfile "$PWD"/.gitignore
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
 open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
