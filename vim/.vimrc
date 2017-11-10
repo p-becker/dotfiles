@@ -83,6 +83,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'benmills/vimux'
 
 Plug 'tpope/vim-dispatch'
+
+Plug 'pangloss/vim-javascript'
+
+Plug 'mxw/vim-jsx'
 " Initialize plugin system
 call plug#end()
 " autosave
