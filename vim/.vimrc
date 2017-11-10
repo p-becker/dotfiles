@@ -361,5 +361,8 @@ nnoremap <leader>gw :Silent git add .; git commit -m 'WIP'<CR> :execute '!git pu
 " Git diff with fugitive
 nnoremap <leader>gd :Gdiff<CR>
 
+" Clear search highlight
+map <leader>h :noh<cr>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
