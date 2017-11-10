@@ -79,6 +79,10 @@ Plug 'janko-m/vim-test'
 Plug 'vim-scripts/vim-auto-save'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'benmills/vimux'
+
+Plug 'tpope/vim-dispatch'
 " Initialize plugin system
 call plug#end()
 " autosave
