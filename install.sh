@@ -29,6 +29,13 @@ git config --global core.excludesfile "$PWD"/.gitignore
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
 open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
+
+npm install -g eslint
+npm install -g webpack
+npm install -g babel-eslint
+npm install -g eslint-plugin-react
+npm install -g eslint-plugin-import
+
 echo "---"
 echo "Please replace the contents of your ~/.zshrc with this:"
 printf "source $PWD/zsh/.zshrc\n"
