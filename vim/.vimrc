@@ -364,5 +364,7 @@ nnoremap <leader>gd :Gdiff<CR>
 " Clear search highlight
 map <leader>h :noh<cr>
 
+" Search and replace
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
