@@ -87,6 +87,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
 
 Plug 'mxw/vim-jsx'
+
+Plug 'tpope/vim-unimpaired'
+
 " Initialize plugin system
 call plug#end()
 " autosave
@@ -210,9 +213,14 @@ autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
 "syntastic settings
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_enable_highlighting=1
+let g:syntastic_enable_signs=1
+highlight SyntasticErrorLine guibg=#550000
+highlight SyntasticWarningLine guibg=#331d1e
 
 let g:syntastic_javascript_checkers = ['eslint']
 let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
