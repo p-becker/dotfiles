@@ -225,6 +225,7 @@ highlight SyntasticWarningLine guibg=#331d1e
 let g:syntastic_javascript_checkers = ['eslint']
 let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
 
+let test#ruby#rspec#executable = 'spring rspec'
 " KEYBINDINGS
 " vim-test
 nmap <silent> <leader>tt :TestNearest<CR>
