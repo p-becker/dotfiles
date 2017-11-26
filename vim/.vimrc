@@ -251,6 +251,9 @@ nnoremap <C-H> <C-W><C-H>
 "make Y consistent with C and D
 nnoremap Y y$
 
+" Run current file in interactive ruby shell
+nnoremap <leader>ri :!irb -r %:p<CR>
+
 " Split down and to the right
 set splitbelow
 set splitright
