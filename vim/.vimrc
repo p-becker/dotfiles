@@ -378,5 +378,9 @@ map <leader>h :noh<cr>
 
 " Search and replace
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" Syntax highlighting for .thor files
+autocmd BufNewFile,BufRead *.thor set syntax=ruby
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
