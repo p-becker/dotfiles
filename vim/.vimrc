@@ -27,9 +27,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   " nnoremap <silent> <leader>o :BTags<CR>
   nnoremap <silent> <leader>ft :Tags<CR>
   nnoremap <silent> <leader>fh :History<CR>
-  "nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
-  nnoremap <silent> <leader>/ :execute 'Rg '<CR>
-  " nnoremap <silent> <leader>. :AgIn
+  nnoremap <silent> <leader>/ :Ag<CR>
 
   nnoremap <silent> K :call SearchWordWithAg()<CR>
   vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
