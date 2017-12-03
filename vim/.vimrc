@@ -88,6 +88,8 @@ Plug 'mxw/vim-jsx'
 
 Plug 'tpope/vim-unimpaired'
 
+Plug 'scrooloose/nerdcommenter'
+
 " Initialize plugin system
 call plug#end()
 " autosave
