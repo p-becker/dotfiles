@@ -90,6 +90,9 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'xolox/vim-easytags'
+
+Plug 'xolox/vim-misc'
 " Initialize plugin system
 call plug#end()
 " autosave
