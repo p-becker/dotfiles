@@ -4,18 +4,24 @@ set relativenumber
 set number
 
 let dotfiles_path = $DOTFILES_PATH
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin(dotfiles_path.'/vim/plugins/plugged')
 
-" Make sure you use single quotes
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
 " Installed via homebrew
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+"Plugin 'file:///usr/local/opt/fzf'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " {{{
   let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
@@ -64,41 +70,44 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " }}}
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Plug 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
-Plug 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
-Plug 'ruanyl/coverage.vim'
+Plugin 'ruanyl/coverage.vim'
 
-Plug 'janko-m/vim-test'
+Plugin 'janko-m/vim-test'
 
-Plug 'vim-scripts/vim-auto-save'
+Plugin 'vim-scripts/vim-auto-save'
 
-Plug 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
-Plug 'benmills/vimux'
+Plugin 'benmills/vimux'
 
-Plug 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 
-Plug 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
-Plug 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
 
-Plug 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
-Plug 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
-Plug 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 
-Plug 'tpope/vim-rails'
+Plugin 'tpope/vim-rails'
 
-Plug 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rbenv'
 
-Plug 'tpope/vim-bundler'
-" Initialize plugin system
-call plug#end()
+Plugin 'tpope/vim-bundler'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required, Specify a directory for plugins
+
 " autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
