@@ -121,6 +121,8 @@ let g:coverage_show_covered = 0
 let g:coverage_show_uncovered = 1
 
 " Status line
+" Reset statusline in case vimrc gets sourced again
+set statusline=
 " Display filename in status bar
 set statusline+=%f
 
