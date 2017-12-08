@@ -3,6 +3,8 @@ let mapleader = ","
 set relativenumber
 set number
 
+set ignorecase
+
 let dotfiles_path = $DOTFILES_PATH
 
 set nocompatible              " be iMproved, required
@@ -417,6 +419,11 @@ function! SwitchProfile()
 
     :Silent osascript ~/dotfiles/scripts/switch_tab.scpt "".$MYVIMUSER
 endfunction
+
+let b:easytags_async = 1
+let g:easytags_auto_highlight = 0
+let g:easytags_events = ['BufWritePost']
+let ruby_space_errors = 1
 
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
