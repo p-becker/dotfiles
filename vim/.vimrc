@@ -197,7 +197,6 @@ function! StatuslineCurrentHighlight()
         return '[' . name . ']'
     endif
 endfunction
-
 "recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
@@ -404,6 +403,20 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
+
+function! SwitchProfile()
+    if($MYVIMUSER == "Default")
+      let $MYVIMUSER = "majesticuser"
+      $MYVIMRC=fnameescape(g:dotfiles_path)."/vim/pairing-configurations/".$MYVIMUSER
+    else
+      let $MYVIMUSER = "Default"
+      $MYVIMRC=fnameescape(g:dotfiles_path)."/vim/.vimrc"
+    end
+
+    source $MYVIMRC
+
+    :Silent osascript ~/dotfiles/scripts/switch_tab.scpt "".$MYVIMUSER
+endfunction
 
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
