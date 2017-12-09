@@ -406,6 +406,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
 
+map <leader>m :call SwitchProfile()<CR>
 let $VIMUSER = exists($VIMUSER) ? $VIMUSER : "Default"
 function SwitchProfile()
     if($VIMUSER == "Default")
