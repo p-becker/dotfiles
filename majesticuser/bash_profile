@@ -1,3 +1,0 @@
-export GREP_OPTIONS='--color=auto'
-alias l='ls -FAlah'
-alias ducks='du -cks * | sort -nr | grep -v total | head -n 10'
