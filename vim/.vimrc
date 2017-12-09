@@ -406,18 +406,17 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
 
-function! SwitchProfile()
-    if($MYVIMUSER == "Default")
-      let $MYVIMUSER = "majesticuser"
-      $MYVIMRC=fnameescape(g:dotfiles_path)."/vim/pairing-configurations/".$MYVIMUSER
+let $VIMUSER = exists($VIMUSER) ? $VIMUSER : "Default"
+function SwitchProfile()
+    if($VIMUSER == "Default")
+      let $VIMUSER = "majesticuser"
+      execute 'source '.fnameescape(g:dotfiles_path).'/vim/pairing-configurations/'.$VIMUSER
     else
-      let $MYVIMUSER = "Default"
-      $MYVIMRC=fnameescape(g:dotfiles_path)."/vim/.vimrc"
+      let $VIMUSER = "Default"
+      execute 'source '.fnameescape(g:dotfiles_path).'/vim/.vimrc'
     end
 
-    source $MYVIMRC
-
-    :Silent osascript ~/dotfiles/scripts/switch_tab.scpt "".$MYVIMUSER
+    :Silent osascript ~/dotfiles/scripts/switch_tab.scpt $VIMUSER
 endfunction
 
 let b:easytags_async = 1
