@@ -28,11 +28,9 @@ git config --global core.excludesfile "$PWD"/.gitignore
 
 # Vim colors
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
-cp color-schemes/lucius/lucius.vim ~/.vim/colors/
 
 # Iterm colors
 open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
-open color-schemes/lucius/LuciusLight.itermcolors
 
 # Iterm preferences
 # http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
