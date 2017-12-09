@@ -417,6 +417,7 @@ function SwitchProfile()
     end
 
     :Silent osascript ~/dotfiles/scripts/switch_tab.scpt $VIMUSER
+    :Silent osascript ~/dotfiles/scripts/switch_input_language.scpt
 endfunction
 
 let b:easytags_async = 1
