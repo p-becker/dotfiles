@@ -417,7 +417,6 @@ function SwitchProfile()
       execute 'source '.fnameescape(g:dotfiles_path).'/vim/.vimrc'
     end
 
-    :Silent osascript ~/dotfiles/scripts/switch_tab.scpt $VIMUSER
     :Silent osascript ~/dotfiles/scripts/switch_input_language.scpt
 endfunction
 
