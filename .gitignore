@@ -1,2 +1,4 @@
 vim/plugins/plugged/
 .DS_Store
+.tags
+Session.vim
