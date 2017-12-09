@@ -29,6 +29,6 @@ set ssop-=folds      " do not store folds
 " Save session when exiting
 au VimLeave * execute 'mksession! '.fnameescape(g:dotfiles_path).'/vim/Session.vim'
 " Source user configuration
-execute 'source '.fnameescape(g:dotfiles_path).'/vim/configurations/'.vimuser
+execute 'source '.fnameescape(g:dotfiles_path).'/vim/configurations/'.vimuser.'.vimrc'
 
 map <leader>m :call SwitchProfile()<CR>
