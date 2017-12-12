@@ -162,7 +162,7 @@ set statusline+=%*
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 " Search for trailing whitespace
-nnoremap <leader>ws /\s\+$<CR>
+nnoremap <leader>wf /\s\+$<CR>
 " Remove all trailing whitespace
 nnoremap <leader>wd :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
