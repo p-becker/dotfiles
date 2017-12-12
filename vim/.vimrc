@@ -12,12 +12,13 @@ command! -nargs=1 Silent
 
 function! SwitchProfile()
     if(g:vimuser == "Default")
-      let g:vimuser = "majesticuser"
+      "let g:vimuser = "majesticuser"
+      let g:vimuser = "sebashwa"
     else
       let g:vimuser = "Default"
     end
 
-    execute 'Silent osascript ~/dotfiles/scripts/switch_input_language.scpt'
+    "execute 'Silent osascript ~/dotfiles/scripts/switch_input_language.scpt'
     execute 'Silent osascript ~/dotfiles/scripts/switch_tab.scpt '.fnameescape(g:dotfiles_path).' '.g:vimuser
     :xa
 endfunction
