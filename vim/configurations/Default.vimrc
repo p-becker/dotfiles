@@ -30,11 +30,10 @@ Plugin 'junegunn/fzf.vim'
   " nnoremap <silent> <leader>o :BTags<CR>
   nnoremap <silent> <leader>ft :Tags<CR>
   nnoremap <silent> <leader>fh :History<CR>
-  nnoremap <silent> <leader>/ :Ag<CR>
 
-  nnoremap <silent> K :call SearchWordWithAg()<CR>
-  vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
-  nnoremap <silent> <leader>fgc :Commits<CR>
+  nnoremap <silent> <leader>a :Ag<CR>
+  nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
+  vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
   nnoremap <silent> <leader>fgb :BCommits<CR>
   " Currently unused and should be remapped to prevent slowing down
   " <leader>f
