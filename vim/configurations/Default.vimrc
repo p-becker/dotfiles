@@ -132,7 +132,9 @@ set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
 
-" set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%#warningmsg#
+set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%*
 
 "display a warning if &paste is set
 set statusline+=%#error#
