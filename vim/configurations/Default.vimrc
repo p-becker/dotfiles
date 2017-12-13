@@ -76,8 +76,6 @@ Plugin 'ruanyl/coverage.vim'
 
 Plugin 'janko-m/vim-test'
 
-Plugin 'vim-scripts/vim-auto-save'
-
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'benmills/vimux'
@@ -103,11 +101,6 @@ Plugin 'tpope/vim-bundler'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required, Specify a directory for plugins
-
-" autosave
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
-let g:auto_save_silent = 1  " do not display the auto-save notification
 
 " coverage.vim
 let g:coverage_json_report_path = 'coverage/coverage-final.json'
