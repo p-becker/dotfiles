@@ -34,6 +34,8 @@ Plugin 'junegunn/fzf.vim'
   nnoremap <silent> <leader>a :Ag<CR>
   nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
   vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
+
+  noremap <silent> <leader>fgc :Commits<CR>
   nnoremap <silent> <leader>fgb :BCommits<CR>
   " Currently unused and should be remapped to prevent slowing down
   " <leader>f
