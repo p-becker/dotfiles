@@ -3,7 +3,7 @@
 
 export DOTFILES_PATH=~/dotfiles
 
-export TERM="xterm-256color"
+TERM="xterm-256color"
 
 # Hide user/hostname
 DEFAULT_USER=$USER
