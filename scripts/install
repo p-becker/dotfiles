@@ -58,3 +58,4 @@ echo "Please replace the contents of your ~/.tigrc with this:"
 printf "source $PWD/.tigrc"
 echo "---"
 echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
+#ln -s ~/dotfiles/vim/.vimrc ~/.config/nvim/init.vim

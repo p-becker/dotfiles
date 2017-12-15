@@ -100,6 +100,7 @@ Plugin 'tpope/vim-rbenv'
 
 Plugin 'tpope/vim-bundler'
 
+Plugin 'KeitaNakamura/neodark.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required, Specify a directory for plugins
@@ -194,6 +195,7 @@ function! StatuslineCurrentHighlight()
         return '[' . name . ']'
     endif
 endfunction
+
 "recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
@@ -244,6 +246,7 @@ highlight SyntasticWarningLine guibg=#331d1e
 let g:syntastic_javascript_checkers = ['eslint']
 let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
 
+let test#strategy = "basic"
 let test#ruby#rspec#executable = 'spring rspec'
 " KEYBINDINGS
 " vim-test
@@ -279,7 +282,7 @@ set splitright
 
 " Colors
 set background=dark
-colorscheme base16-railscasts
+colorscheme neodark
 
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236

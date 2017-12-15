@@ -20,7 +20,7 @@ on run argv
               select
           end if
           tell current session
-              write text "VIMUSER=" & desiredProfile & " vim -S " & sessionFile & " -u " & vimrc
+              write text "VIMUSER=" & desiredProfile & " nvim -S " & sessionFile & " -u " & vimrc
           end tell
       end tell
   end tell

@@ -90,8 +90,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="vim"
-export PATH="$(brew --prefix vim)/bin:$PATH"
+export PATH="$(brew --prefix neovim)/bin:$PATH"
+alias vi="nvim"
+alias vim="nvim"
 
 alias b="bundle exec"
 alias brc="bundle exec rails console"
@@ -111,7 +112,7 @@ function cd() {
 
 source "$DOTFILES_PATH/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# nvm 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
