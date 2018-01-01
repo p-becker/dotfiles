@@ -279,6 +279,10 @@ nnoremap Y y$
 " Run current file in interactive ruby shell
 nnoremap <leader>ri :!irb -r %:p<CR>
 
+" Save in one keypress
+nnoremap <F19> :update<cr>
+inoremap <F19> <Esc>:update<cr>
+
 " Split down and to the right
 set splitbelow
 set splitright
