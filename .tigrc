@@ -2,3 +2,5 @@ bind status a !git commit --amend
 bind status p !git push origin
 bind status \ !?git push origin --force
 bind status D !?rm %(file)
+# Custom script to fetch the master branch and then do an interactive rebase on it
+bind main M !git rebase-fetched-master
