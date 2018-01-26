@@ -76,6 +76,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 export PATH="$(brew --prefix neovim)/bin:$PATH"
+export PATH="$DOTFILES_PATH/bin:$PATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
