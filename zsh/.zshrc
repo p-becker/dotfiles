@@ -98,6 +98,7 @@ alias vim="nvim"
 
 alias b="bundle exec"
 alias brc="bundle exec rails console"
+alias cop="bundle exec rubocop --rails --display-cop-names"
 
 alias ctags="/usr/local/opt/ctags/bin/ctags"
 export PATH="/usr/local/opt/ctags/bin:$PATH"
