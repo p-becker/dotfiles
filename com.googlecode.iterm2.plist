@@ -983,11 +983,11 @@ tell application "iTerm" to tell session -1 of current terminal to write text "e
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 68 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>242 272 937 512 0 0 1440 900 </string>
+	<string>371 339 1016 502 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>276 219 665 477 0 0 1440 877 </string>
+	<string>0 220 665 477 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1 106 665 527 0 0 1024 640 </string>
+	<string>4 569 665 477 0 0 2048 1152 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>135 113 665 527 0 0 1024 640 </string>
 	<key>New Bookmarks</key>
@@ -1372,6 +1372,34 @@ tell application "iTerm" to tell session -1 of current terminal to write text "e
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
+				</dict>
+				<key>0x68-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x14 0x70</string>
+				</dict>
+				<key>0x68-0x180000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x14 0x08</string>
+				</dict>
+				<key>0x6c-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x14 0x6E</string>
+				</dict>
+				<key>0x6c-0x180000</key>
+				<dict>
+					<key>Action</key>
+					<integer>11</integer>
+					<key>Text</key>
+					<string>0x14 0x0C</string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -2381,6 +2409,10 @@ tell application "iTerm" to tell session -1 of current terminal to write text "e
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>511AEEF8-9FD0-4B43-8787-EFEB61E99B63</string>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
+	<true/>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
