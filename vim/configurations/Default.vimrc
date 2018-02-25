@@ -257,6 +257,13 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 
+" Codewars test framework
+nmap <silent> <leader>tk :call TestKata()<CR>
+
+function! TestKata()
+  execute "vsplit | terminal ruby % | lynx --stdin"
+endfunction
+
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
@@ -440,6 +447,7 @@ if has("nvim")
 
   " Prefer Neovim terminal insert mode to normal mode.
   autocmd BufEnter term://* startinsert
+
 endif
 
 " fzf configuration
