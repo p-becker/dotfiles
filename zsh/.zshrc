@@ -58,7 +58,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history tmux tmuxinator)
+plugins=(git history tmux tmuxinator zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,8 +115,6 @@ function cd() {
     fi;
     builtin cd "${new_directory}" && ls
 }
-
-source "$DOTFILES_PATH/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
