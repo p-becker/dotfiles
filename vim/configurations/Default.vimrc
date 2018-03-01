@@ -421,7 +421,9 @@ nnoremap <leader>gd :Gdiff<CR>
 map <leader>h :noh<cr>
 
 " Search and replace
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+nnoremap <leader>j :j<CR>
 
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
