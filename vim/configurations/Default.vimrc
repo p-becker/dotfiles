@@ -405,14 +405,8 @@ endfunction
 
 " GIT STUFF <leader>g
 " Tig
-nnoremap <leader>gt :Silent tig<CR>
-nnoremap <leader>gg :Silent tig %<CR>
-
-" Git commit with message
-nnoremap <leader>gc :Silent git add .; git commit<CR> :execute '!git push'<CR>
-
-" Git WIP commit and push
-nnoremap <leader>gw :Silent git add .; git commit -m 'WIP'<CR> :execute '!git push'<CR>
+nnoremap <leader>gt :e term://tig<CR>
+nnoremap <leader>gg :e term://tig %<CR>
 
 " Git diff with fugitive
 nnoremap <leader>gd :Gdiff<CR>
