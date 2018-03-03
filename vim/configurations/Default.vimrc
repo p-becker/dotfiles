@@ -415,8 +415,18 @@ endfunction
 
 " GIT STUFF <leader>g
 " Tig
-nnoremap <leader>gt :e term://tig<CR>
-nnoremap <leader>gg :e term://tig %<CR>
+nnoremap <leader>gt :Start tig<CR>
+nnoremap <leader>gg :Start tig %<CR>
+
+" Git commit with message
+nnoremap <leader>gc :Start git add .; git commit; git push<CR>
+
+" Git WIP commit and push
+nnoremap <leader>gw :call WipCommitAndPush()<CR>
+
+function WipCommitAndPush()
+  silent exec "!git add .; git commit -m 'WIP'; git push"
+endfunction
 
 " Git diff with fugitive
 nnoremap <leader>gd :Gdiff<CR>
