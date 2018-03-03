@@ -5,109 +5,13 @@ set number
 
 set ignorecase
 
-" set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" https://github.com/mislav/thoughtbot-dotfiles/blob/master/vimrc
+let vimrc_bundle_file = expand(fnameescape(dotfiles_path)."/vim/configurations/p-becker.vimrc.bundles")
+if filereadable(vimrc_bundle_file)
+  exec "source " . g:vimrc_bundle_file
+end
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" Keep Plugin commands between vundle#begin/end.
-" Installed via homebrew
-"Plugin 'file:///usr/local/opt/fzf'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-" {{{
-  let g:fzf_nvim_statusline = 0 " disable statusline overwriting
-
-  " FIND STUFF <leader>f
-  nnoremap <silent> <leader>ff :Files<CR>
-  nnoremap <silent> <leader>fb :Buffers<CR>
-  nnoremap <silent> <leader>fw :Windows<CR>
-  nnoremap <silent> <leader>f; :BLines<CR>
-  " nnoremap <silent> <leader>o :BTags<CR>
-  nnoremap <silent> <leader>ft :Tags<CR>
-  nnoremap <silent> <leader>fh :History<CR>
-
-  nnoremap <silent> <leader>a :Ag<CR>
-  nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
-  vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
-
-  noremap <silent> <leader>fgc :Commits<CR>
-  nnoremap <silent> <leader>fgb :BCommits<CR>
-  " Currently unused and should be remapped to prevent slowing down
-  " <leader>f
-  " nnoremap <silent> <leader>ft :Filetypes<CR>
-
-  imap <C-x><C-f> <plug>(fzf-complete-file-ag)
-  imap <C-x><C-l> <plug>(fzf-complete-line)
-  imap <C-x><C-p> <plug>(fzf-complete-path)
-
-  function! SearchWordWithAg()
-    execute 'Ag' expand('<cword>')
-  endfunction
-
-  function! SearchVisualSelectionWithAg() range
-    let old_reg = getreg('"')
-    let old_regtype = getregtype('"')
-    let old_clipboard = &clipboard
-    set clipboard&
-    normal! ""gvy
-    let selection = getreg('"')
-    call setreg('"', old_reg, old_regtype)
-    let &clipboard = old_clipboard
-    execute 'Ag' selection
-  endfunction
-
-  function! SearchWithAgInDirectory(...)
-    call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
-  endfunction
-  command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>)
-" }}}
-
-" On-demand loading
-Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-Plugin 'tpope/vim-surround'
-
-Plugin 'vim-syntastic/syntastic'
-
-Plugin 'ruanyl/coverage.vim'
-
-Plugin 'janko-m/vim-test'
-
-Plugin 'tpope/vim-fugitive'
-
-Plugin 'benmills/vimux'
-
-Plugin 'tpope/vim-dispatch'
-
-Plugin 'pangloss/vim-javascript'
-
-Plugin 'mxw/vim-jsx'
-
-Plugin 'tpope/vim-unimpaired'
-
-Plugin 'scrooloose/nerdcommenter'
-
-Plugin 'vim-ruby/vim-ruby'
-
-Plugin 'tpope/vim-rails'
-
-Plugin 'tpope/vim-rbenv'
-
-Plugin 'tpope/vim-bundler'
-
-Plugin 'KeitaNakamura/neodark.vim'
-
-Plugin 'elmcast/elm-vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required, Specify a directory for plugins
-
-" elm-vim
 " Only needed when polyglot is used
 "let g:polyglot_disabled = ['elm']
 let g:elm_detailed_complete = 1
