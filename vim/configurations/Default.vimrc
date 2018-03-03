@@ -289,6 +289,8 @@ inoremap <A-l> <C-o>l
 "make Y consistent with C and D
 nnoremap Y y$
 
+" Set default shell to zsh
+set shell=/usr/local/bin/zsh
 " Run current file in interactive ruby shell
 nnoremap <leader>ri :!irb -r %:p<CR>
 
@@ -422,9 +424,10 @@ nnoremap <leader>j :j<CR>
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
 
-let b:easytags_async = 1
-let g:easytags_auto_highlight = 0
-let g:easytags_events = ['BufWritePost']
+" Update ctags upon save
+let ctags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public'
+autocmd BufWritePost *.rb,*.js,*.jsx,*.elm call jobstart(ctags_command)
+
 let ruby_space_errors = 1
 
 " https://stackoverflow.com/questions/44002912/how-to-scroll-the-terminal-emulator-in-neovim
