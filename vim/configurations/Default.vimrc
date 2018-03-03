@@ -102,9 +102,17 @@ Plugin 'tpope/vim-bundler'
 
 Plugin 'KeitaNakamura/neodark.vim'
 
+Plugin 'elmcast/elm-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required, Specify a directory for plugins
+
+" elm-vim
+" Only needed when polyglot is used
+"let g:polyglot_disabled = ['elm']
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
+let g:elm_syntastic_show_warnings = 1
 
 " coverage.vim
 let g:coverage_json_report_path = 'coverage/coverage-final.json'
