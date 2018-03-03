@@ -107,6 +107,8 @@ export PATH="/usr/local/opt/ctags/bin:$PATH"
 
 alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 
+alias tags="ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public"
+
 # always ls after cd
 function cd() {
     new_directory="$*";
