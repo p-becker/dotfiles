@@ -1,0 +1,117 @@
+if &compatible
+  set nocompatible
+end
+
+" Shim command and function to allow migration from Vundle to vim-plug.
+function! VundleToPlug(vundle_command, arg, ...)
+  echom "You are using Vundle's `".a:vundle_command."` command to declare plugins. Dotfiles now uses vim-plug for plugin mangagement. Please rename uses of `".a:vundle_command."` to `Plug`. Plugin was '".a:arg."'."
+  let vim_plug_options = {}
+
+  if a:0 > 0
+    if has_key(a:1, 'name')
+      let name = a:1.name
+      let vim_plug_options.dir = "$HOME/.vim/bundle/".a:1.name
+    endif
+
+    if has_key(a:1, 'rtp')
+      let vim_plug_options.rtp = a:1.rtp
+    endif
+  endif
+
+  Plug a:arg, vim_plug_options
+endfunction
+
+com! -nargs=+  -bar Plugin call VundleToPlug("Plugin", <args>)
+com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" {{{
+  let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+
+  " FIND STUFF <leader>f
+  nnoremap <silent> <leader>ff :Files<CR>
+  nnoremap <silent> <leader>fb :Buffers<CR>
+  nnoremap <silent> <leader>fw :Windows<CR>
+  nnoremap <silent> <leader>f; :BLines<CR>
+  " nnoremap <silent> <leader>o :BTags<CR>
+  nnoremap <silent> <leader>ft :Tags<CR>
+  nnoremap <silent> <leader>fh :History<CR>
+
+  nnoremap <silent> <leader>a :Ag<CR>
+  nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
+  vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
+
+  noremap <silent> <leader>fgc :Commits<CR>
+  nnoremap <silent> <leader>fgb :BCommits<CR>
+  " Currently unused and should be remapped to prevent slowing down
+  " <leader>f
+  " nnoremap <silent> <leader>ft :Filetypes<CR>
+
+  imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+  imap <C-x><C-l> <plug>(fzf-complete-line)
+  imap <C-x><C-p> <plug>(fzf-complete-path)
+
+  function! SearchWordWithAg()
+    execute 'Ag' expand('<cword>')
+  endfunction
+
+  function! SearchVisualSelectionWithAg() range
+    let old_reg = getreg('"')
+    let old_regtype = getregtype('"')
+    let old_clipboard = &clipboard
+    set clipboard&
+    normal! ""gvy
+    let selection = getreg('"')
+    call setreg('"', old_reg, old_regtype)
+    let &clipboard = old_clipboard
+    execute 'Ag' selection
+  endfunction
+
+  function! SearchWithAgInDirectory(...)
+    call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
+  endfunction
+  command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>)
+" }}}
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'tpope/vim-surround'
+
+Plug 'vim-syntastic/syntastic'
+
+Plug 'ruanyl/coverage.vim'
+
+Plug 'janko-m/vim-test'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'benmills/vimux'
+
+Plug 'tpope/vim-dispatch'
+
+Plug 'pangloss/vim-javascript'
+
+Plug 'mxw/vim-jsx'
+
+Plug 'tpope/vim-unimpaired'
+
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'vim-ruby/vim-ruby'
+
+Plug 'tpope/vim-rails'
+
+Plug 'tpope/vim-rbenv'
+
+Plug 'tpope/vim-bundler'
+
+Plug 'KeitaNakamura/neodark.vim'
+
+Plug 'elmcast/elm-vim'
+
+call plug#end()
