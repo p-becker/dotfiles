@@ -1,15 +1,16 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-let vimuser = empty($VIMUSER) ? "Default" : $VIMUSER
+let default_vimuser = 'p-becker'
+let vimuser = empty($VIMUSER) ? g:default_vimuser : $VIMUSER
 let dotfiles_path = $DOTFILES_PATH
 
 function! SwitchProfile()
-    if(g:vimuser == "Default")
+    if(g:vimuser == g:default_vimuser)
       let g:vimuser = "majesticuser"
       "let g:vimuser = "sebashwa"
     else
-      let g:vimuser = "Default"
+      let g:vimuser = g:default_vimuser
     end
 
     silent exec '!osascript ~/dotfiles/scripts/switch_input_language.scpt'
