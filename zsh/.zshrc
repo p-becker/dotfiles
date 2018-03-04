@@ -58,7 +58,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history tmux tmuxinator zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,8 +75,10 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export PATH="$(brew --prefix neovim)/bin:$PATH"
-export PATH="$(brew --prefix openssl)/bin:$PATH"
+# Installed via homebrew.
+# Hardcoded because `brew --prefix` takes a long time.
+export PATH="/usr/local/opt/neovim/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 export PATH="$DOTFILES_PATH/bin:$PATH"
 
@@ -119,8 +121,7 @@ function cd() {
 }
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 
 # https://dougblack.io/words/zsh-vi-mode.html
 # vi mode instead of emacs mode
@@ -147,9 +148,16 @@ bindkey '^r' history-incremental-search-backward
 
 # Rbenv
 export RBENV_ROOT=~/.rbenv
+# Disable for now for a tiny bit of startup speed
+# Besides settings up the shim path as above, it does:
+# - Adds to path and sets RBENV_SHELL (copied below)
+# - Install autocompletion
+# - Rehahes shims
+# - Installs dispatcher for things like 'rbenv shell'
+#eval "$(rbenv init -)"
 export PATH=$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
-eval "$(rbenv init -)"
-
+export RBENV_SHELL=zsh
+#
 # --files: List files that would be searched but do not search
 # --no-ignore: Do not respect .gitignore, etc...
 # --hidden: Search hidden files and folders
