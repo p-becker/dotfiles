@@ -112,6 +112,7 @@ Plug 'tpope/vim-bundler'
 
 Plug 'KeitaNakamura/neodark.vim'
 
-Plug 'elmcast/elm-vim'
+"Plug 'elmcast/elm-vim'
 
+Plug 'mdxprograms/elm-vim'
 call plug#end()
