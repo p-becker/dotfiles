@@ -1,5 +1,4 @@
 #!/bin/sh
-git clone https://github.com/bhilburn/powerlevel9k.git zsh/plugins/oh-my-zsh/custom/themes/powerlevel9k
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "nvim" "Ack")
