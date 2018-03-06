@@ -3,3 +3,5 @@ vim/plugins/plugged/
 .tags
 Session.vim
 *@neomake*
+zsh/.zhistory
+zsh/.zcompdump
