@@ -1,7 +1,11 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 export DOTFILES_PATH=~/dotfiles
+export ZDOTDIR="$DOTFILES_PATH/zsh"
+
+# Init zprezto
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 
 TERM="xterm-256color"
 
@@ -90,7 +94,7 @@ export RBENV_ROOT=~/.rbenv
 #eval "$(rbenv init -)"
 export PATH=$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 export RBENV_SHELL=zsh
-#
+
 # --files: List files that would be searched but do not search
 # --no-ignore: Do not respect .gitignore, etc...
 # --hidden: Search hidden files and folders

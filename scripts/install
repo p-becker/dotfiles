@@ -1,5 +1,7 @@
 #!/bin/sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# TODO: move into dotfiles folder
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "nvim" "Ack")
 
@@ -54,6 +56,8 @@ npm install -g eslint-plugin-import
 echo "---"
 echo "Please replace the contents of your ~/.zshrc with this:"
 printf "source $PWD/zsh/.zshrc\n"
+# TODO: use when zprezto works in dotfiles folder
+#printf "export ZDOTDIR=$DOTFILES_PATH/zsh"
 echo "Please replace the contents of your ~/.tmux.conf with this:"
 printf "source-file $PWD/.tmux.conf"
 echo "Please replace the contents of your ~/.tigrc with this:"
