@@ -1,6 +1,8 @@
 #!/bin/sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# TODO: handle $DOTFILES_PATH not set on first install
 # TODO: move into dotfiles folder
+export ZDOTDIR=$DOTFILES_PATH/zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "nvim" "Ack")
@@ -47,21 +49,14 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$PWD"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
-npm install -g eslint
-npm install -g webpack
-npm install -g babel-eslint
-npm install -g eslint-plugin-react
-npm install -g eslint-plugin-import
-
 echo "---"
-echo "Please replace the contents of your ~/.zshrc with this:"
-printf "source $PWD/zsh/.zshrc\n"
-# TODO: use when zprezto works in dotfiles folder
-#printf "export ZDOTDIR=$DOTFILES_PATH/zsh"
+echo "Please link your .zshrc:"
+printf "ln -s $DOTFILES_PATH/zsh/.zshrc ~/.zshrc"
 echo "Please replace the contents of your ~/.tmux.conf with this:"
 printf "source-file $PWD/.tmux.conf"
 echo "Please replace the contents of your ~/.tigrc with this:"
 printf "source $PWD/.tigrc"
 echo "---"
 echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
-#ln -s ~/dotfiles/vim/.vimrc ~/.config/nvim/init.vim
+echo "Please link your init.vim / .vimrc:"
+printf "ln -s $DOTFILES_PATH/vim/.vimrc ~/.config/nvim/init.vim"
