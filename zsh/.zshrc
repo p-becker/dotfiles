@@ -32,6 +32,10 @@ alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i
 alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
 alias del_vim_swaps='find ~/.vim/ -type f -name "*.sw[klmnop]" -delete'
+alias g="git"
+# Previously gs would start GhostScript
+alias gs="git status"
+alias gp="git push"
 alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 alias tags="ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public"
 alias vi="nvim"
