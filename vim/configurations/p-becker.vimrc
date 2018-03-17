@@ -328,7 +328,7 @@ nnoremap <leader>gc :Start git add .; git commit; git push<CR>
 " Git WIP commit and push
 nnoremap <leader>gw :call WipCommitAndPush()<CR>
 
-function WipCommitAndPush()
+function! WipCommitAndPush()
   silent exec "!git add .; git commit -m 'WIP'; git push"
 endfunction
 
