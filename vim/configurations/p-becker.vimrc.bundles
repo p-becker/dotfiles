@@ -117,4 +117,8 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'mdxprograms/elm-vim'
 
 Plug 'vim-airline/vim-airline'
+
+Plug 'bfredl/nvim-miniyank'
+
+Plug 'Shougo/denite.nvim'
 call plug#end()

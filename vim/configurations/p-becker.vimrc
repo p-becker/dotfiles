@@ -272,5 +272,10 @@ if has("nvim")
 
 endif
 
+" nvim-miniyank
+nmap p <Plug>(miniyank-autoput)
+nmap P <Plug>(miniyank-autoPut)
+nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
