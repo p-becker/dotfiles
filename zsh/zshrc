@@ -1,0 +1,85 @@
+### Exports ###
+export DOTFILES_PATH=~/dotfiles
+export ZDOTDIR="$DOTFILES_PATH/zsh"
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+ export EDITOR='vim'
+else
+ export EDITOR='nvim'
+fi
+# fzf
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+export KEYTIMEOUT=1
+# Installed via homebrew.
+# Hardcoded because `brew --prefix` takes a long time.
+export PATH="/usr/local/opt/neovim/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="$DOTFILES_PATH/bin:$PATH"
+export PATH="/usr/local/opt/ctags/bin:$PATH"
+# Rbenv
+export RBENV_ROOT=~/.rbenv
+export RBENV_SHELL=zsh
+
+### Aliases ###
+alias b="bundle exec"
+alias brc="bundle exec rails console"
+alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
+alias cop="bundle exec rubocop --rails --display-cop-names"
+alias ctags="/usr/local/opt/ctags/bin/ctags"
+alias del_vim_swaps='find ~/.vim/ -type f -name "*.sw[klmnop]" -delete'
+alias g="git"
+# Previously gs would start GhostScript
+alias gs="git status"
+alias gp="git push"
+alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
+alias tags="ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public"
+alias vi="nvim"
+alias vim="nvim"
+
+### Keybindings ###
+# https://dougblack.io/words/zsh-vi-mode.html
+# vi mode instead of emacs mode
+bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+### Functions ###
+# always ls after cd
+function cd() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}" && ls
+}
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    zle reset-prompt
+}
+
+### Misc ###
+# Better colors
+TERM="xterm-256color"
+# Hide user/hostname
+DEFAULT_USER=$USER
+zle -N zle-line-init
+zle -N zle-keymap-select
+# Init zprezto
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+# Init rbenv
+eval "$(rbenv init -)"
+# init fzf
+[ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
