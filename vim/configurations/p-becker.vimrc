@@ -99,6 +99,9 @@ inoremap <A-j> <C-o>j
 inoremap <A-k> <C-o>k
 inoremap <A-l> <C-o>l
 
+" Switch tabs
+nnoremap <A-h> :tabp<CR>
+nnoremap <A-l> :tabn<CR>
 "make Y consistent with C and D
 nnoremap Y y$
 
