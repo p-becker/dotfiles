@@ -242,8 +242,6 @@ map <leader>h :noh<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-nnoremap <leader>j :j<CR>
-
 " Syntax highlighting for .thor files
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
 
@@ -275,6 +273,7 @@ endif
 " nvim-miniyank
 nmap p <Plug>(miniyank-autoput)
 nmap P <Plug>(miniyank-autoPut)
+nmap <leader>j <Plug>(miniyank-cycle)
 nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
 
 " fzf configuration
