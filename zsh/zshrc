@@ -24,6 +24,8 @@ export PATH="/usr/local/opt/ctags/bin:$PATH"
 # Rbenv
 export RBENV_ROOT=~/.rbenv
 export RBENV_SHELL=zsh
+# Directory for tmuxinator configurations
+export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
 
 ### Aliases ###
 alias b="bundle exec"
@@ -75,11 +77,17 @@ TERM="xterm-256color"
 DEFAULT_USER=$USER
 zle -N zle-line-init
 zle -N zle-keymap-select
+
 # Init zprezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
 # Init rbenv
 eval "$(rbenv init -)"
+
+# Tmuxinator autocompletion
+source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
+
 # init fzf
 [ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
