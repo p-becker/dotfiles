@@ -126,24 +126,23 @@ set background=dark
 colorscheme neodark
 
 " Improve terminal colors
-let g:terminal_color_0  = '#1F2F38'
-let g:terminal_color_1  = '#DC657D'
-let g:terminal_color_2  = '#84B97C'
-let g:terminal_color_3  = '#F0C674'
-let g:terminal_color_4  = '#639EE4'
-let g:terminal_color_5  = '#E69CA0'
-let g:terminal_color_6  = '#4BB1A7'
-let g:terminal_color_7  = '#C7C18B'
-let g:terminal_color_8  = '#263A45'
-let g:terminal_color_9  = '#D75F87'
-let g:terminal_color_10 = '#87AF87'
-let g:terminal_color_11 = '#D7AF5F'
-let g:terminal_color_12 = '#5FD7D7'
-let g:terminal_color_13 = '#D7AFAF'
-let g:terminal_color_14 = '#5FD7D7'
-let g:terminal_color_15 = '#3A3A3A'
+let g:terminal_color_0  = '#1F2F38' " #1F2F38'
+let g:terminal_color_1  = '#DC657D' " #DC657D'
+let g:terminal_color_2  = '#84B97C' " #84B97C'
+let g:terminal_color_3  = '#F0C674' " #F0C674'
+let g:terminal_color_4  = '#639EE4' " #639EE4'
+let g:terminal_color_5  = '#E69CA0' " #E69CA0'
+let g:terminal_color_6  = '#4BB1A7' " #4BB1A7'
+let g:terminal_color_7  = '#C7C18B' " #C7C18B'
+let g:terminal_color_8  = '#263A45' " #263A45'
+let g:terminal_color_9  = '#D75F87' " #D75F87'
+let g:terminal_color_10 = '#87AF87' " #87AF87'
+let g:terminal_color_11 = '#D7AF5F' " #D7AF5F'
+let g:terminal_color_12 = '#5FD7D7' " #5FD7D7'
+let g:terminal_color_13 = '#D7AFAF' " #D7AFAF'
+let g:terminal_color_14 = '#5FD7D7' " #5FD7D7'
+let g:terminal_color_15 = '#3A3A3A' " #3A3A3A'
 
-highlight clear SignColumn
 
 " http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
 " yank to clipboard
