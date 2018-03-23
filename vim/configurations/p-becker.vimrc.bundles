@@ -82,7 +82,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-surround'
 
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 Plug 'ruanyl/coverage.vim'
 
