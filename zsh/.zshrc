@@ -1,1 +1,0 @@
-/Users/pbecker/dotfiles/zsh/zshrc
