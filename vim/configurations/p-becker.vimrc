@@ -47,19 +47,6 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 
-"syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_enable_highlighting=1
-let g:syntastic_enable_signs=1
-highlight SyntasticErrorLine guibg=#550000
-highlight SyntasticWarningLine guibg=#331d1e
-
-let g:syntastic_javascript_checkers = ['eslint']
-
 let test#strategy = "basic"
 let test#ruby#rspec#executable = 'spring rspec'
 " KEYBINDINGS
@@ -143,6 +130,12 @@ let g:terminal_color_13 = '#D7AFAF' " #D7AFAF'
 let g:terminal_color_14 = '#5FD7D7' " #5FD7D7'
 let g:terminal_color_15 = '#3A3A3A' " #3A3A3A'
 
+" Styling for ale linter errors 
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+exe 'highlight ALEErrorSign guibg=NONE guifg='.g:terminal_color_9
+exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
 
 " http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
 " yank to clipboard
