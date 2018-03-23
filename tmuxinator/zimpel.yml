@@ -50,6 +50,10 @@ windows:
   - docker:
       layout: main-vertical
       panes:
-        - bin/compose dev up
-        - bin/compose test up
+        - dev:
+          # Enable pane titles for this window only
+          - tmux set -t zimpel:docker pane-border-status bottom
+          - bin/compose dev up
+        - test:
+          - bin/compose test up
   - webpack: yarn serve
