@@ -49,6 +49,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$PWD"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 pip3 install neovim
+gem install tmuxinator
 
 echo "---"
 echo "Please link your dotfiles:"
