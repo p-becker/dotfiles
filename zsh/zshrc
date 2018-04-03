@@ -38,6 +38,9 @@ alias g="git"
 # Previously gs would start GhostScript
 alias gs="git status"
 alias gp="git push"
+# Project specific branches
+alias gp2="git push origin :stage2 --force"
+alias gp3="git push origin :stage3 --force"
 alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
