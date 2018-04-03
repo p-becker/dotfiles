@@ -1,0 +1,7 @@
+name: keycloak
+root: ~/git/newsaktuell-sso/keycloak
+
+windows:
+  - vim: nvim
+  - tig: tig
+  - docker: docker-compose -f docker-compose-dev.yml up --build
