@@ -123,4 +123,6 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'Shougo/denite.nvim'
 
 Plug 'ap/vim-css-color'
+
+Plug 'andreshazard/vim-freemarker'
 call plug#end()
