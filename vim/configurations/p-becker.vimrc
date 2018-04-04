@@ -271,5 +271,8 @@ nmap P <Plug>(miniyank-autoPut)
 nmap <leader>j <Plug>(miniyank-cycle)
 nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
 
+" Change indentation for .ftl files
+autocmd BufRead,BufNewFile *.ftl setl sw=4 sts=4 et
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
