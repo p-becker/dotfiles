@@ -125,4 +125,6 @@ Plug 'Shougo/denite.nvim'
 Plug 'ap/vim-css-color'
 
 Plug 'andreshazard/vim-freemarker'
+
+Plug 'airblade/vim-localorie'
 call plug#end()

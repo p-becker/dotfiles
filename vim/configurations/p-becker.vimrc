@@ -274,5 +274,9 @@ nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
 " Change indentation for .ftl files
 autocmd BufRead,BufNewFile *.ftl setl sw=4 sts=4 et
 
+" vim-localorie
+nnoremap <silent> <leader>lt :call localorie#translate()<CR>
+nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
