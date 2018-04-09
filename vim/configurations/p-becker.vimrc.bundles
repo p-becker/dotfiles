@@ -127,4 +127,6 @@ Plug 'ap/vim-css-color'
 Plug 'andreshazard/vim-freemarker'
 
 Plug 'airblade/vim-localorie'
+
+Plug 'tpope/vim-classpath'
 call plug#end()
