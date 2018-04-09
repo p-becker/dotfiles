@@ -192,6 +192,9 @@ set softtabstop=2
 set expandtab
 set autoindent
 
+" Use 4 spaces of indentation for some files
+autocmd BufRead,BufNewFile *.ftl,*.java setl sw=4 sts=4 et
+
 "when copying/pasting from the term into :e from a git diff or rspec or
 "similar we edit things like
 "
@@ -270,9 +273,6 @@ nmap p <Plug>(miniyank-autoput)
 nmap P <Plug>(miniyank-autoPut)
 nmap <leader>j <Plug>(miniyank-cycle)
 nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
-
-" Change indentation for .ftl files
-autocmd BufRead,BufNewFile *.ftl setl sw=4 sts=4 et
 
 " vim-localorie
 nnoremap <silent> <leader>lt :call localorie#translate()<CR>
