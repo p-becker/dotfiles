@@ -4,4 +4,4 @@ root: ~/git/newsaktuell-sso/keycloak
 windows:
   - vim: nvim
   - tig: tig
-  - docker: docker-compose -f docker-compose-dev.yml up --build
+  - docker: docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-dev.yml up --build
