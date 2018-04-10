@@ -5,3 +5,9 @@ windows:
   - vim: nvim
   - tig: tig
   - docker: docker-compose -f docker-compose-dev.yml down && docker-compose -f docker-compose-dev.yml up --build
+  - federation-vim:
+    - cd ../keycloak-user-federation
+    - nvim
+  - federation-deploy:
+    - cd ../keycloak-user-federation
+    - mvn --settings settings.xml clean deploy
