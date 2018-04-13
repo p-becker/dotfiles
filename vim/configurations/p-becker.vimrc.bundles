@@ -139,6 +139,10 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+Plug 'artur-shaik/vim-javacomplete2'
 
 Plug 'shime/vim-livedown'
 call plug#end()
