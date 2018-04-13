@@ -278,5 +278,10 @@ nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
 nnoremap <silent> <leader>lt :call localorie#translate()<CR>
 nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
 
+
+" vim-livedown
+nmap <leader>mp :LivedownPreview<CR>
+nmap <leader>mt :LivedownToggle<CR>
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"

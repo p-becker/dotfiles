@@ -139,4 +139,6 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+
+Plug 'shime/vim-livedown'
 call plug#end()
