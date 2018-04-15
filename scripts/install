@@ -5,24 +5,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 export ZDOTDIR=$DOTFILES_PATH/zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-declare -a formulas=("zsh" "fzf" "tmux" "rbenv" "nvim" "Ack" "python3")
-
-## now loop through the above array
-for f in "${formulas[@]}"; do
-	if ! command -v "$f" >/dev/null; then
-	       while true; do
-		read -p "Do you wish to install $f? [Yy/Nn]: " yn
-		case $yn in
-			[Yy]* ) brew install "$f"; break;;
-			[Nn]* ) exit;;
-			* ) echo "Please answer yes [Yy] or no [Nn].";;
-		esac
-		done
-	else
-		echo "$f is already installed."
-	fi
-done
-
+./install_brews
 # Install vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
