@@ -1,9 +1,9 @@
-let mapleader = ","
-
+" ----- SETTINGS -----
 set relativenumber
 set number
-
 set ignorecase
+" Set default shell to zsh
+set shell=/usr/local/bin/zsh
 
 " https://github.com/mislav/thoughtbot-dotfiles/blob/master/vimrc
 let vimrc_bundle_file = expand(fnameescape(dotfiles_path)."/vim/configurations/p-becker.vimrc.bundles")
@@ -11,19 +11,16 @@ if filereadable(vimrc_bundle_file)
   exec "source " . g:vimrc_bundle_file
 end
 
+" Indentation
 filetype plugin indent on    " required, Specify a directory for plugins
-" Only needed when polyglot is used
-"let g:polyglot_disabled = ['elm']
-let g:elm_detailed_complete = 1
-let g:elm_format_autosave = 1
-let g:elm_syntastic_show_warnings = 1
-
-" coverage.vim
-let g:coverage_json_report_path = 'coverage/coverage-final.json'
-let g:coverage_sign_covered = '⦿'
-let g:coverage_interval = 5000
-let g:coverage_show_covered = 0
-let g:coverage_show_uncovered = 1
+"default indent settings
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
+" Use 4 spaces of indentation for some files
+autocmd BufRead,BufNewFile *.ftl,*.java setl sw=4 sts=4 et
+" -------------
 
 " Status line
 " Always show the status line
@@ -47,59 +44,11 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 
-let test#strategy = "basic"
-let test#ruby#rspec#executable = 'spring rspec'
-" KEYBINDINGS
-" vim-test
-nmap <silent> <leader>tt :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ta :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
-
-" Codewars test framework
-nmap <silent> <leader>tk :call TestKata()<CR>
-
-function! TestKata()
-  execute "vsplit | terminal ruby % | lynx --stdin"
-endfunction
-
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
-
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"nerdtree settings
-let g:NERDTreeWinSize = 40
-let g:NERDTreeMinimalUI=1
-
-" Easier pane navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" provide hjkl movements in Insert mode via the <Alt> modifier key
-inoremap <A-h> <C-o>h
-inoremap <A-j> <C-o>j
-inoremap <A-k> <C-o>k
-inoremap <A-l> <C-o>l
-
-" Switch tabs
-nnoremap <A-h> :tabp<CR>
-nnoremap <A-l> :tabn<CR>
-"make Y consistent with C and D
-nnoremap Y y$
-
-" Set default shell to zsh
-set shell=/usr/local/bin/zsh
-" Run current file in interactive ruby shell
-nnoremap <leader>ri :!irb -r %:p<CR>
-
-" Save in one keypress
-nnoremap <F19> :update<cr>
-inoremap <F19> <Esc>:update<cr>
+let test#strategy = "basic"
+let test#ruby#rspec#executable = 'spring rspec'
 
 " Split down and to the right
 set splitbelow
@@ -108,10 +57,8 @@ set splitright
 " Colors
 " 24 bit true colors
 set termguicolors
-
 set background=dark
 colorscheme neodark
-
 " Improve terminal colors
 let g:terminal_color_0  = '#1F2F38' " #1F2F38'
 let g:terminal_color_1  = '#DC657D' " #DC657D'
@@ -129,16 +76,10 @@ let g:terminal_color_12 = '#5FD7D7' " #5FD7D7'
 let g:terminal_color_13 = '#D7AFAF' " #D7AFAF'
 let g:terminal_color_14 = '#5FD7D7' " #5FD7D7'
 let g:terminal_color_15 = '#3A3A3A' " #3A3A3A'
+" ------
 
-" Styling for ale linter errors 
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-
-exe 'highlight ALEErrorSign guibg=NONE guifg='.g:terminal_color_9
-exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
-
-" http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
 " yank to clipboard
+" http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
 
@@ -158,8 +99,7 @@ set cursorline
 " https://github.com/scrooloose/vimfiles/blob/master/vimrc
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-"display tabs and trailing spaces
-set list
+set list        "display tabs and trailing spaces
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 set hlsearch
@@ -168,7 +108,9 @@ set incsearch   "find the next match as we type the search
 set wrap        "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
-"undo settings
+set colorcolumn=+1 "mark the ideal max text width
+
+" undo settings
 " https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
@@ -183,17 +125,7 @@ set undodir=~/.vim/undo-dir
 set undofile
 
 set directory=~/.vim/swapfiles//
-
-set colorcolumn=+1 "mark the ideal max text width
-
-"default indent settings
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set autoindent
-
-" Use 4 spaces of indentation for some files
-autocmd BufRead,BufNewFile *.ftl,*.java setl sw=4 sts=4 et
+" ------------
 
 "when copying/pasting from the term into :e from a git diff or rspec or
 "similar we edit things like
@@ -216,6 +148,83 @@ function! s:checkForLnum() abort
     endif
 endfunction
 
+" Syntax highlighting for .thor files
+autocmd BufNewFile,BufRead *.thor set syntax=ruby
+
+" Update ctags upon save
+let ctags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public'
+autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
+
+let ruby_space_errors = 1
+
+" Terminal mode improvements
+" https://stackoverflow.com/questions/44002912/how-to-scroll-the-terminal-emulator-in-neovim
+if has("nvim")
+  " Make escape work in the Neovim terminal.
+  tnoremap <Esc> <C-\><C-n>
+
+  " Make navigation into and out of Neovim terminal splits nicer.
+  tnoremap <C-h> <C-\><C-N><C-w>h
+  tnoremap <C-j> <C-\><C-N><C-w>j
+  tnoremap <C-k> <C-\><C-N><C-w>k
+  tnoremap <C-l> <C-\><C-N><C-w>l
+
+  " I like relative numbering when in normal mode.
+  autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+
+  " Prefer Neovim terminal insert mode to normal mode.
+  autocmd BufEnter term://* startinsert
+endif
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+let mapleader = ","
+" ----- KEYBINDINGS -----
+" vim-test
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+" Codewars test framework
+nmap <silent> <leader>tk :call TestKata()<CR>
+
+function! TestKata()
+  execute "vsplit | terminal ruby % | lynx --stdin"
+endfunction
+
+map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeFind<CR>
+
+" Easier pane navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" provide hjkl movements in Insert mode via the <Alt> modifier key
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
+
+" Switch tabs
+nnoremap <A-h> :tabp<CR>
+nnoremap <A-l> :tabn<CR>
+"make Y consistent with C and D
+nnoremap Y y$
+
+" Run current file in interactive ruby shell
+nnoremap <leader>ri :!irb -r %:p<CR>
+
+" Save in one keypress
+nnoremap <F19> :update<cr>
+inoremap <F19> <Esc>:update<cr>
+
 " GIT STUFF <leader>g
 " Tig
 nnoremap <leader>gt :Start tig<CR>
@@ -233,6 +242,7 @@ endfunction
 
 " Git diff with fugitive
 nnoremap <leader>gd :Gdiff<CR>
+" -------
 
 " Clear search highlight
 map <leader>h :noh<cr>
@@ -240,44 +250,33 @@ map <leader>h :noh<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" Syntax highlighting for .thor files
-autocmd BufNewFile,BufRead *.thor set syntax=ruby
+" ----- PLUGIN SPECIFIC CONFIGURATION -----
+" ale
+" Styling for linter errors
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
-" Update ctags upon save
-let ctags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public'
-autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
+exe 'highlight ALEErrorSign guibg=NONE guifg='.g:terminal_color_9
+exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
+" ---
 
-let ruby_space_errors = 1
-
-" https://stackoverflow.com/questions/44002912/how-to-scroll-the-terminal-emulator-in-neovim
-if has("nvim")
-  " Make escape work in the Neovim terminal.
-  tnoremap <Esc> <C-\><C-n>
-
-  " Make navigation into and out of Neovim terminal splits nicer.
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
-
-  " I like relative numbering when in normal mode.
-  autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-
-  " Prefer Neovim terminal insert mode to normal mode.
-  autocmd BufEnter term://* startinsert
-
-endif
+"nerdtree settings
+let g:NERDTreeWinSize = 40
+let g:NERDTreeMinimalUI=1
 
 " nvim-miniyank
 nmap p <Plug>(miniyank-autoput)
 nmap P <Plug>(miniyank-autoPut)
 nmap <leader>j <Plug>(miniyank-cycle)
 nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
+" -------------
 
 " vim-localorie
 nnoremap <silent> <leader>lt :call localorie#translate()<CR>
 nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
+" -------------
 
+" Neosnippet
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -292,11 +291,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" -------------
 
 " vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -335,10 +330,28 @@ vmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
 
 nmap <silent> <buffer> <leader>jn <Plug>(JavaComplete-Generate-NewClass)
 nmap <silent> <buffer> <leader>jN <Plug>(JavaComplete-Generate-ClassInFile)
+" -----------------
 
 " vim-livedown
 nmap <leader>mp :LivedownPreview<CR>
 nmap <leader>mt :LivedownToggle<CR>
+" ------------
+
+" elm-vim
+" Only needed when polyglot is used
+"let g:polyglot_disabled = ['elm']
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
+let g:elm_syntastic_show_warnings = 1
+" -------
+
+" coverage.vim
+let g:coverage_json_report_path = 'coverage/coverage-final.json'
+let g:coverage_sign_covered = '⦿'
+let g:coverage_interval = 5000
+let g:coverage_show_covered = 0
+let g:coverage_show_uncovered = 1
+" ------------
 
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
