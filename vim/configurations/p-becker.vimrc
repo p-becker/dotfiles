@@ -353,5 +353,52 @@ let g:coverage_show_covered = 0
 let g:coverage_show_uncovered = 1
 " ------------
 
+" fzf.vim
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+
+" FIND STUFF <leader>f
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fw :Windows<CR>
+nnoremap <silent> <leader>f; :BLines<CR>
+" nnoremap <silent> <leader>o :BTags<CR>
+nnoremap <silent> <leader>ft :Tags<CR>
+nnoremap <silent> <leader>fh :History<CR>
+
+nnoremap <silent> <leader>a :Ag<CR>
+nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
+vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
+
+noremap <silent> <leader>fgc :Commits<CR>
+nnoremap <silent> <leader>fgb :BCommits<CR>
+" Currently unused and should be remapped to prevent slowing down
+" <leader>f
+" nnoremap <silent> <leader>ft :Filetypes<CR>
+
+imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+imap <C-x><C-p> <plug>(fzf-complete-path)
+
+function! SearchWordWithAg()
+  execute 'Ag' expand('<cword>')
+endfunction
+
+function! SearchVisualSelectionWithAg() range
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  let old_clipboard = &clipboard
+  set clipboard&
+  normal! ""gvy
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_regtype)
+  let &clipboard = old_clipboard
+  execute 'Ag' selection
+endfunction
+
+function! SearchWithAgInDirectory(...)
+  call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
+endfunction
+command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>)
+
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"
