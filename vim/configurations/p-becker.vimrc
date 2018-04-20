@@ -244,8 +244,25 @@ endfunction
 nnoremap <leader>gd :Gdiff<CR>
 " -------
 
+" Diff two windows
+nnoremap <leader>d :call ToggleWindoDiff()<cr>
+
+let g:windodiff_open = 0
+
+function! ToggleWindoDiff()
+  if g:windodiff_open
+    windo diffoff
+    let g:windodiff_open = 0
+  else
+    windo diffthis
+    let g:windodiff_open = 1
+  endif
+endfunction
+" ---------------
+
 " Clear search highlight
 map <leader>h :noh<cr>
+
 
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
