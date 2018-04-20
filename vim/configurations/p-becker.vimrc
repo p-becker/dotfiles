@@ -250,6 +250,13 @@ map <leader>h :noh<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Position cursor AFTER last pasted character, not on it
+noremap p gp
+noremap P gP
+" Old behavior
+noremap gp p
+noremap gP P
+
 " ----- PLUGIN SPECIFIC CONFIGURATION -----
 " ale
 " Styling for linter errors
