@@ -265,6 +265,8 @@ let g:ale_sign_warning = '⚠'
 
 exe 'highlight ALEErrorSign guibg=NONE guifg='.g:terminal_color_9
 exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
+" Don't run until file gets saved
+let g:ale_lint_on_text_changed = 'never'
 " ---
 
 "nerdtree settings
