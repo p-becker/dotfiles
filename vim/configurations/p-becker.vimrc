@@ -264,11 +264,9 @@ exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
 let g:NERDTreeWinSize = 40
 let g:NERDTreeMinimalUI=1
 
-" nvim-miniyank
-nmap p <Plug>(miniyank-autoput)
-nmap P <Plug>(miniyank-autoPut)
-nmap <leader>j <Plug>(miniyank-cycle)
-nmap <leader>p :Denite -mode=normal -winheight=10 miniyank<CR>
+" vim-yankstack
+nmap <Leader>p <Plug>yankstack_substitute_older_paste
+nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 " -------------
 
 " vim-localorie

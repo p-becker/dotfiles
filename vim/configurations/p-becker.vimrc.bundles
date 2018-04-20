@@ -71,7 +71,7 @@ Plug 'mdxprograms/elm-vim'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'bfredl/nvim-miniyank'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 Plug 'Shougo/denite.nvim'
 
