@@ -1,0 +1,12 @@
+#!/bin/bash
+latestVersion="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
+currentVersion="$(rbenv global)"
+
+if [ "$currentVersion" == "$latestVersion" ]; then
+  echo "Ruby version $currentVersion is up-to-date"
+else
+  echo "Changing rbenv global version from $currentVersion to $latestVersion..."
+  rbenv global "$latestVersion"
+  echo "Installing ruby $latestVersion..."
+  yes n | rbenv install "$latestVersion"
+fi
