@@ -155,6 +155,12 @@ autocmd BufNewFile,BufRead *.thor set syntax=ruby
 let ctags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public'
 autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
 
+" Clear search highlight after save
+function! SearchHlClear()
+  let @/ = ''
+endfunction
+autocmd BufWritePost * call SearchHlClear()
+
 let ruby_space_errors = 1
 
 " Terminal mode improvements
