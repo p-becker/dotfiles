@@ -1,0 +1,4 @@
+#!/bin/bash
+
+revision=$(git-revision-from-reflog < /dev/stdin)
+tig --stdin ${revision}
