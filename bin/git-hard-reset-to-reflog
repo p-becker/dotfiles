@@ -1,0 +1,4 @@
+#!/bin/bash
+
+revision=$(git-revision-from-reflog < /dev/stdin)
+git reset --hard "${revision}"

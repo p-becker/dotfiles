@@ -4,3 +4,7 @@ bind status \ !?git push origin --force-with-lease
 bind status D !?rm %(file)
 # Custom script to fetch the master branch and then do an interactive rebase on it
 bind main M !git rebase-fetched-master
+# Parse commit ID from git reflog and pass it to the main view
+bind pager <Enter> !sh -c "git reflog-to-tig <<< '%(text)'"
+# Hard reset to selected git reflog line
+bind pager H !?<sh -c "git hard-reset-to-reflog <<< '%(text)'"

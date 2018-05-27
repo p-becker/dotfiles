@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Parses the first revision for git reflog lines passed via stdin
+awk '{print $2}' - | sed 's/\://' | head -n 1
