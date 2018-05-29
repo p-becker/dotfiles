@@ -6,3 +6,4 @@ Session.vim
 zsh/.zhistory
 zsh/.zcompdump
 zsh/.zshrc
+*.swp
