@@ -3,10 +3,10 @@
 cd "$(dirname "$0")/.."
 git pull
 git submodule update --recursive --remote
-update_ruby_version
-gem update --system
-yes y | gem update
-yes n | gem clean
+#update_ruby_version
+#gem update --system
+#yes y | gem update
+#yes n | gem clean
 brew update
 brew upgrade
 brew cleanup
