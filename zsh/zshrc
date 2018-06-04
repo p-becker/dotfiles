@@ -37,13 +37,14 @@ alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
 alias del_vim_swaps='find ~/.vim/ -type f -name "*.sw[klmnop]" -delete'
 alias g="git"
+alias gd="git diff"
 # Previously gs would start GhostScript
 alias gs="git status"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 # Project specific branches
-alias gp2="git push origin :stage2 --force"
-alias gp3="git push origin :stage3 --force"
+alias gp2="git push origin $(git rev-parse --abbrev-ref HEAD):stage2 --force"
+alias gp3="git push origin $(git rev-parse --abbrev-ref HEAD):stage3 --force"
 alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
 alias tags="ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=public"
