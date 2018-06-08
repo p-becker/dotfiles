@@ -90,10 +90,29 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+let deoplete_config = expand(fnameescape(dotfiles_path)."/vim/configurations/p-becker.deoplete.vim")
+if filereadable(deoplete_config)
+  exec "source " . g:deoplete_config
+end
 
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+let g:LanguageClient_autoStop = 0
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['tcp://localhost:7658']
+    \ }
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
+
+"filetype plugin on
+"autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
 
 Plug 'artur-shaik/vim-javacomplete2'
 
