@@ -5,6 +5,7 @@ tap "homebrew/core"
 
 brew "Ack"
 brew "fzf"
+brew "go"
 brew "nvim"
 brew "nvm"
 brew "python3"
