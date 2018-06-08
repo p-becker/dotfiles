@@ -231,6 +231,10 @@ nnoremap <leader>ri :!irb -r %:p<CR>
 nnoremap <F19> :update<cr>
 inoremap <F19> <Esc>:update<cr>
 
+" Autocomplete
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+
 " GIT STUFF <leader>g
 " Tig
 nnoremap <leader>gt :Start tig<CR>
@@ -266,8 +270,8 @@ function! ToggleWindoDiff()
 endfunction
 " ---------------
 
-" Clear search highlight
-map <leader>h :noh<cr>
+" Clear search highlight and preview window
+map <leader>h :noh<CR>:pc<cr>
 
 
 " Search and replace
