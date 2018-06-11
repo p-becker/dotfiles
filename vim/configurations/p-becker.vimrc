@@ -33,6 +33,13 @@ let g:airline_section_c = airline#section#create('%<%<%{airline#extensions#fugit
 let g:airline_section_x = airline#section#create('%{airline#util#wrap(airline#extensions#branch#get_head(),0)}')
 let g:airline_section_y = airline#section#create([])
 let g:airline_section_z = airline#section#create(['%3p%% %{g:airline_symbols.linenr}%#__restore__#%L%#__restore__#L'])
+" List match count in statusline
+" mapping
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+set statusline=%{anzu#search_status()}
 
 " Search for trailing whitespace
 nnoremap <leader>wf /\s\+$<CR>

@@ -117,4 +117,6 @@ nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
 Plug 'artur-shaik/vim-javacomplete2'
 
 Plug 'shime/vim-livedown'
+
+Plug 'osyo-manga/vim-anzu'
 call plug#end()
