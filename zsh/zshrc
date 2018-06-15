@@ -30,7 +30,7 @@ export RBENV_SHELL=zsh
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
 
 export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ### Aliases ###
 alias be="bundle exec"
 alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
