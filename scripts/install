@@ -19,8 +19,10 @@ git config --global rerere.enabled true
 git config --global alias.g "grep --break --heading --line-number"
 
 # Vim colors
-cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
-cp color-schemes/lucius/lucius.vim ~/.vim/colors/
+mkdir ~/.config/nvim/colors
+
+cp color-schemes/railscasts/base16-railscasts.vim ~/.config/nvim/colors
+cp color-schemes/lucius/lucius.vim ~/.config/nvim/colors
 
 # Iterm colors
 open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
