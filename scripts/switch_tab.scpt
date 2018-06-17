@@ -2,7 +2,7 @@ on run argv
   set dotfilesPath to item 1 of argv
   set desiredProfile to item 2 of argv
   set sessionFile to dotfilesPath & "/vim/Session.vim"
-  set vimrc to dotfilesPath & "/vim/.vimrc"
+  set vimrc to dotfilesPath & "/vim/vimrc"
   set foundProfile to false
 
   tell application "iTerm"
