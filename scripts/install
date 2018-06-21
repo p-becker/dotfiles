@@ -16,6 +16,7 @@ mkdir -p ~/.vim/colors
 git config --global core.editor $(which nvim)
 git config --global core.excludesfile "$PWD"/.gitignore
 git config --global rerere.enabled true
+git config --global alias.g "grep --break --heading --line-number"
 
 # Vim colors
 cp color-schemes/railscasts/base16-railscasts.vim ~/.vim/colors/
