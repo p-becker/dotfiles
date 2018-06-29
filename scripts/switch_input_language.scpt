@@ -1,3 +1,3 @@
 tell application "System Events"
-  key code 37 using {shift down, command down}
+  key code 111
 end tell
