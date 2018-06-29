@@ -23,6 +23,7 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$DOTFILES_PATH/bin:$PATH"
 export PATH="/usr/local/opt/ctags/bin:$PATH"
 PATH=$PATH:~/go/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 # Rbenv
 export RBENV_ROOT=~/.rbenv
 export RBENV_SHELL=zsh
