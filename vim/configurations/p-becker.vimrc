@@ -394,6 +394,9 @@ let g:coverage_show_covered = 0
 let g:coverage_show_uncovered = 1
 " ------------
 
+" vimwiki
+let g:vimwiki_list = [{'path': fnameescape(dotfiles_path).'/vim/wiki'}]
+
 " fzf.vim
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 

@@ -81,6 +81,8 @@ Plug 'andreshazard/vim-freemarker'
 
 Plug 'airblade/vim-localorie'
 
+Plug 'vimwiki/vimwiki'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
