@@ -60,5 +60,5 @@ windows:
           - bin/compose dev up
         - test:
           - bin/compose test up
-  - webpack: yarn serve
+  - webpack: npm run serve
   - lsc: solargraph socket
