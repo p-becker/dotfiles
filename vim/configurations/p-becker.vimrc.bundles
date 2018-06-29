@@ -81,8 +81,6 @@ Plug 'andreshazard/vim-freemarker'
 
 Plug 'airblade/vim-localorie'
 
-Plug 'tpope/vim-classpath'
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -108,13 +106,6 @@ nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
-
-"filetype plugin on
-"autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
-"Plug 'Shougo/neosnippet'
-"Plug 'Shougo/neosnippet-snippets'
-
-Plug 'artur-shaik/vim-javacomplete2'
 
 Plug 'shime/vim-livedown'
 
