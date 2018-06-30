@@ -11,3 +11,6 @@
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "alacritty"]
+	path = alacritty
+	url = https://github.com/jwilm/alacritty
