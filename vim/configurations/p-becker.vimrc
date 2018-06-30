@@ -235,8 +235,8 @@ nnoremap Y y$
 nnoremap <leader>ri :!irb -r %:p<CR>
 
 " Save in one keypress
-nnoremap <F19> :update<cr>
-inoremap <F19> <Esc>:update<cr>
+nnoremap <F6> :update<cr>
+inoremap <F6> <Esc>:update<cr>
 
 " Autocomplete
 inoremap <C-Space> <C-x><C-o>
