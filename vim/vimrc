@@ -13,10 +13,15 @@ function! SwitchProfile()
       let g:vimuser = g:default_vimuser
     end
 
-    silent exec '!osascript ~/dotfiles/scripts/switch_input_language.scpt'
-    silent exec '!osascript ~/dotfiles/scripts/switch_tab.scpt '.fnameescape(g:dotfiles_path).' '.g:vimuser
+    let l:tmux_conf       = expand(fnameescape(g:dotfiles_path)).'/tmux/'.g:vimuser.'.conf'
+    let l:language_script = expand(fnameescape(g:dotfiles_path)).'/scripts/switch_input_language.scpt'
+    let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/configurations/'.g:vimuser.'.vimrc'
 
-    :xa
+    exec "source " . l:vimrc
+    silent exec '!tmux source-file ' . l:tmux_conf
+    silent exec '!osascript ' . l:language_script
+    " Refresh status to display the changed keyboard layout
+    silent exec '!tmux refresh-client -S'
 endfunction
 
 " Improve session handling
