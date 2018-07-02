@@ -117,21 +117,6 @@ set linebreak   "wrap lines at convenient points
 
 set colorcolumn=+1 "mark the ideal max text width
 
-" undo settings
-" https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
-endif
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-endif
-if !isdirectory($HOME."/.vim/swapfiles")
-    call mkdir($HOME."/.vim/swapfiles", "", 0700)
-endif
-set undodir=~/.vim/undo-dir
-set undofile
-
-set directory=~/.vim/swapfiles//
 " ------------
 
 "when copying/pasting from the term into :e from a git diff or rspec or

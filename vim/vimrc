@@ -25,6 +25,27 @@ set ssop-=folds      " do not store folds
 
 " Save session when exiting
 au VimLeave * execute 'mksession! '.fnameescape(g:dotfiles_path).'/vim/Session.vim'
+
+" undo settings
+" https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+if !isdirectory($HOME."/.vim/swapfiles")
+    call mkdir($HOME."/.vim/swapfiles", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+" https://stackoverflow.com/questions/1636297/how-to-change-the-folder-path-for-swp-files-in-vim
+" For Unix and Win32, if a directory ends in two path separators "//" or "\\",
+" the swap file name will be built from the complete path to the file with all
+" path separators substituted to percent '%' signs.
+" This will ensure file name uniqueness in the preserve directory.
+set directory=~/.vim/swapfiles//
+
 " Source user configuration
 execute 'source '.fnameescape(g:dotfiles_path).'/vim/configurations/'.vimuser.'.vimrc'
 
