@@ -1,0 +1,9 @@
+#!/bin/bash
+sleep 5
+echo "hello from sub"
+tmux source-file "$1"
+tmux refresh-client -S
+echo "sending"
+sleep 1
+tmux send-keys -t left "VIMUSER=$2 nvim -S $3 -u $4" Enter
+sleep 5
