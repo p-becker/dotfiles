@@ -55,7 +55,7 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let test#strategy = "basic"
-let test#ruby#rspec#executable = 'bin/spring rspec'
+let test#ruby#rspec#executable = 'bin/rspec'
 
 " Split down and to the right
 set splitbelow
