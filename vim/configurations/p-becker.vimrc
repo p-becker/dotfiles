@@ -213,8 +213,6 @@ inoremap <A-l> <C-o>l
 " Switch tabs
 nnoremap <A-h> :tabp<CR>
 nnoremap <A-l> :tabn<CR>
-"make Y consistent with C and D
-nnoremap Y y$
 
 " Run current file in interactive ruby shell
 nnoremap <leader>ri :!irb -r %:p<CR>
@@ -269,12 +267,6 @@ map <leader>h :noh<CR>:pc<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" Position cursor AFTER last pasted character, not on it
-noremap p gp
-noremap P gP
-" Old behavior
-noremap gp p
-noremap gP P
 
 " ----- PLUGIN SPECIFIC CONFIGURATION -----
 " ale
@@ -293,8 +285,19 @@ let g:NERDTreeWinSize = 40
 let g:NERDTreeMinimalUI=1
 
 " vim-yankstack
+" Must happen before any mapping involving y,d,c,p etc
+call yankstack#setup()
+" Position cursor AFTER last pasted character, not on it
+noremap p gp
+noremap P gP
+" Old behavior
+noremap gp p
+noremap gP P
 nmap <Leader>p <Plug>yankstack_substitute_older_paste
 nmap <Leader>P <Plug>yankstack_substitute_newer_paste
+"
+"make Y consistent with C and D
+nnoremap Y y$
 " -------------
 
 " vim-localorie
