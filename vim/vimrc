@@ -1,3 +1,5 @@
+" Reset all options
+"set all&
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -15,13 +17,18 @@ function! SwitchProfile()
 
     let l:tmux_conf       = expand(fnameescape(g:dotfiles_path)).'/tmux/'.g:vimuser.'.conf'
     let l:language_script = expand(fnameescape(g:dotfiles_path)).'/scripts/switch_input_language.scpt'
-    let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/configurations/'.g:vimuser.'.vimrc'
+    let l:vimsession           = expand(fnameescape(g:dotfiles_path)).'/vim/Session.vim'
+    " let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/configurations/'.g:vimuser.'.vimrc'
+    let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/vimrc'
 
-    exec "source " . l:vimrc
-    silent exec '!tmux source-file ' . l:tmux_conf
+    "exec "source " . l:vimrc
+    "silent exec '!tmux source-file ' . l:tmux_conf
     silent exec '!osascript ' . l:language_script
     " Refresh status to display the changed keyboard layout
-    silent exec '!tmux refresh-client -S'
+    "silent exec '!tmux refresh-client -S'
+    silent exec '!scripts/switch_tmux '.l:tmux_conf.' '.g:vimuser.' '.l:vimsession.' '.l:vimrc
+    "silent exec "!tmux new-window 'VIMUSER=".g:vimuser." nvim -S ".l:vimsession." -u ".l:vimrc."'"
+    :xa
 endfunction
 
 " Improve session handling
