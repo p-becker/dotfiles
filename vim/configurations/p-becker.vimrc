@@ -1,5 +1,4 @@
 " ----- SETTINGS -----
-set relativenumber
 set number
 set ignorecase
 " Set default shell to zsh
@@ -25,9 +24,11 @@ autocmd BufRead,BufNewFile *.ftl,*.java setl sw=4 sts=4 et
 " Status line
 " Always show the status line
 set laststatus=2
-" Disable default mode indicator in favor of vim-airline
+" Disable default mode indicator and ruler in favor of vim-airline
 set noshowmode
 " Slim down the status bar provided by vim-airline
+let g:airline_extensions = []
+let g:airline_highlighting_cache = 1
 let g:airline_section_b = airline#section#create([])
 let g:airline_section_c = airline#section#create('%<%<%{airline#extensions#fugitiveline#bufname()}%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#')
 let g:airline_section_x = airline#section#create('%{airline#util#wrap(airline#extensions#branch#get_head(),0)}')
@@ -96,12 +97,14 @@ if has("clipboard")
 endif
 
 " Improve performance
-" Use old regex engine to fix lag when editing ruby files
-autocmd FileType ruby setlocal re=1
-set ttyfast
-set lazyredraw
-" Nice, but disable this for more speed
-set cursorline
+set nocursorline
+set norelativenumber
+set noruler
+" Don't display keystrokes, significantly slows vim down :<
+set noshowcmd
+" Prevent syntax highlighting getting bogged down by long lines
+set synmaxcol=300
+"set lazyredraw
 
 " https://github.com/scrooloose/vimfiles/blob/master/vimrc
 " allow backspacing over everything in insert mode
