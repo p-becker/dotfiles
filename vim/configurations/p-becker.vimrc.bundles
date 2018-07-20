@@ -47,7 +47,7 @@ Plug 'KeitaNakamura/neodark.vim'
 
 Plug 'mdxprograms/elm-vim'
 
-"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 Plug 'maxbrunsfeld/vim-yankstack'
 
@@ -60,6 +60,8 @@ Plug 'andreshazard/vim-freemarker'
 Plug 'airblade/vim-localorie'
 
 Plug 'vimwiki/vimwiki'
+
+Plug 'ludovicchabant/vim-gutentags'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

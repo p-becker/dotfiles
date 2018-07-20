@@ -147,8 +147,8 @@ endfunction
 autocmd BufNewFile,BufRead *.thor set syntax=ruby
 
 " Update ctags upon save
-let ctags_command = 'ctags -R'
-autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
+"let ctags_command = 'ctags -R'
+"autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
 
 " Clear search highlight after save
 function! SearchHlClear()
