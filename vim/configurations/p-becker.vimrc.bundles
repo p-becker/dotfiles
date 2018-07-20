@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
 
-Plug 'ruanyl/coverage.vim'
+"Plug 'ruanyl/coverage.vim'
 
 Plug 'janko-m/vim-test'
 
@@ -47,7 +47,7 @@ Plug 'KeitaNakamura/neodark.vim'
 
 Plug 'mdxprograms/elm-vim'
 
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 
 Plug 'maxbrunsfeld/vim-yankstack'
 
@@ -73,19 +73,19 @@ if filereadable(deoplete_config)
   exec "source " . g:deoplete_config
 end
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-let g:LanguageClient_autoStop = 0
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['tcp://localhost:7658']
-    \ }
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
+"Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+    "\ }
+"let g:LanguageClient_autoStop = 0
+"let g:LanguageClient_serverCommands = {
+    "\ 'ruby': ['tcp://localhost:7658']
+    "\ }
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
+"nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
+"nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
+"nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
 
 Plug 'shime/vim-livedown'
 
