@@ -1,9 +1,6 @@
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
-[submodule "vim/plugins/fzf.vim"]
-	path = vim/plugins/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
