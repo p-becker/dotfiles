@@ -62,6 +62,8 @@ Plug 'airblade/vim-localorie'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'junegunn/vim-peekaboo'
+
 Plug 'ludovicchabant/vim-gutentags'
 
 if has('nvim')
