@@ -1,16 +1,12 @@
-[submodule "zsh/plugins/zsh-syntax-highlighting"]
-	path = zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "vim/plugins/fzf.vim"]
-	path = vim/plugins/fzf.vim 
-	url = https://github.com/junegunn/fzf.vim.git 
-
-[submodule "zsh/plugins/oh-my-zsh"]
-	path = zsh/plugins/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "vim/plugins/fzf.vim"]
+	path = vim/plugins/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "alacritty"]
 	path = alacritty
 	url = https://github.com/jwilm/alacritty
