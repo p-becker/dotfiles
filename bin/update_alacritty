@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+cd "$(dirname "$0")/.."
+cd alacritty
+if [[ `git status --porcelain` ]]; then
+  git pull
+  rustup override set stable
+  rustup update stable
+  make app
+  cp -r target/release/osx/Alacritty.app /Applications/
+else
+  echo "Alacritty is up-to-date."
+fi
+
+

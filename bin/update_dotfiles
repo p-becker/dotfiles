@@ -12,11 +12,5 @@ brew upgrade
 brew cleanup
 nvim -c PlugUpdate -c quitall
 
-# update alacritty
-cd alacritty
-git pull
-rustup override set stable
-rustup update stable
-make app
-cp -r target/release/osx/Alacritty.app /Applications/
-
+cd $(dirname "$0")
+update_alacritty
