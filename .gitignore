@@ -1,6 +1,7 @@
 vim/plugins/plugged/
 .DS_Store
 .tags
+tags
 Session.vim
 *@neomake*
 zsh/.zhistory
