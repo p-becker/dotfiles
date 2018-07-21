@@ -50,6 +50,7 @@ Plug 'mdxprograms/elm-vim'
 Plug 'vim-airline/vim-airline'
 
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-repeat'
 
 Plug 'Shougo/denite.nvim'
 
