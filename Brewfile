@@ -14,3 +14,5 @@ brew "telnet"
 brew "tmux"
 brew "yarn"
 brew "zsh"
+
+cask "chromedriver"
