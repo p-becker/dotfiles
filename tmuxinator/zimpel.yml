@@ -45,6 +45,7 @@ root: ~/epic-relations
 windows:
   - vim: nvim
   - tig: tig
+  - frontend: cd frontend && nvim
   - server: bundle exec rails s
   - console: 
     # Explicitely start a spring server in the background.
@@ -60,5 +61,5 @@ windows:
           - bin/compose dev up
         - test:
           - bin/compose test up
-  - webpack: npm run serve
+  - webpack: cd frontend && npm run serve
   - lsc: solargraph socket
