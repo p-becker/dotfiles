@@ -24,5 +24,5 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " set sources
 let g:deoplete#sources = {}
-let g:deoplete#sources.ruby = ['LanguageClient', 'around']
+let g:deoplete#sources.ruby = ['LanguageClient', 'around', 'ultisnips']
 let g:deoplete#sources.vim = ['vim', 'around']
