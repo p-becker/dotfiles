@@ -95,4 +95,8 @@ end
 Plug 'shime/vim-livedown'
 
 Plug 'osyo-manga/vim-anzu'
+
+Plug 'SirVer/ultisnips'
+
+Plug 'honza/vim-snippets'
 call plug#end()
