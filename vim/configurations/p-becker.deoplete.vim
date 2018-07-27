@@ -4,9 +4,11 @@
 " plugin
 
 set runtimepath+=~/.vim/bundle/deoplete.nvim/
+set completeopt=longest,menuone,preview
+" Hide completion match message
+set shortmess +=c
 " deoplete options
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
 
 " disable autocomplete by default
 "let b:deoplete_disable_auto_complete=1 
@@ -21,36 +23,33 @@ endif
 call deoplete#custom#source('_',
             \ 'disabled_syntaxes', ['Comment', 'String'])
 
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 call deoplete#custom#option({
       \ 'auto_complete': v:false,
+      \ 'smart_case': v:true
       \ })
-      "\ 'complete_method': 'completefunc'
+" set sources
+call deoplete#custom#option('sources', {
+      \ '_': ['around'],
+      \ 'ruby': ['ultisnips'],
+      \ 'vim': ['vim'],
+      \})
+
 inoremap <expr> <C-n> deoplete#mappings#manual_complete('around')
-"let g:UltiSnipsExpandTrigger="<CR>"
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-inoremap <expr> <C-x><C-s> deoplete#mappings#manual_complete('ultisnips')
-inoremap <silent><expr> <TAB>
+" Use tab to trigger autocomplete + move to next entry
+inoremap <expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete('around', 'LanguageClient', 'ultisnips')
-
+      \ deoplete#mappings#manual_complete(['around', 'ultisnips'])
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
-" set sources
-let g:deoplete#sources = {}
-let g:deoplete#sources.ruby = ['LanguageClient', 'around']
-let g:deoplete#sources.vim = ['vim', 'around']
+
+" Close autocomplete menu with Enter
+imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<C-j>"
