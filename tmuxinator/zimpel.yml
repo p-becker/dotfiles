@@ -61,5 +61,11 @@ windows:
           - bin/compose dev up
         - test:
           - bin/compose test up
-  - webpack: cd frontend && npm run serve
+  - npm:
+      layout: main-vertical
+      panes:
+        - webpack:
+          - cd frontend && npm run serve
+        - storybook:
+          - cd frontend && npm run storybook
   - lsc: solargraph socket
