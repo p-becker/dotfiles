@@ -1,6 +1,7 @@
 #!/bin/bash -ex
 cd "$(dirname "$0")/.."
 cd alacritty
+git checkout master
 if [[ `git status --porcelain` ]]; then
   git pull
   rustup override set stable
