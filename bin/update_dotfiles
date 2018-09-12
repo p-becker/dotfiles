@@ -9,6 +9,7 @@ git submodule update --recursive --remote
 #yes n | gem clean
 brew update
 brew upgrade
+brew cask upgrade
 brew cleanup
 nvim -c PlugUpdate -c quitall
 
