@@ -21,23 +21,25 @@ call deoplete#custom#source('_',
 "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " disable autocomplete by default
-call deoplete#custom#option({
-      \ 'auto_complete': v:false,
-      \ 'smart_case': v:true
-      \ })
-" set sources
-call deoplete#custom#option('sources', {
-      \ '_': ['around'],
-      \ 'ruby': ['ultisnips'],
-      \ 'vim': ['vim'],
-      \})
+"call deoplete#custom#option({
+      "\ 'auto_complete': v:false,
+      "\ 'smart_case': v:true
+      "\ })
+"" set sources
+"call deoplete#custom#option('sources', {
+      "\ '_': ['around'],
+      "\ 'ruby': ['ultisnips'],
+      "\ 'typescript': ['typescript'],
+      "\ 'typescript.tsx': ['typescript'],
+      "\ 'vim': ['vim'],
+      "\})
 
-inoremap <expr> <C-n> deoplete#mappings#manual_complete('around')
-" Use tab to trigger autocomplete + move to next entry
+"inoremap <expr> <C-n> deoplete#mappings#manual_complete('around')
+"" Use tab to trigger autocomplete + move to next entry
 inoremap <expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete(['around', 'ultisnips'])
+      \ deoplete#mappings#manual_complete()
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
