@@ -184,6 +184,8 @@ endif
 
 let mapleader = ","
 " ----- KEYBINDINGS -----
+" No need for ex mode
+nnoremap Q <nop>
 " vim-test
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
