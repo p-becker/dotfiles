@@ -42,6 +42,7 @@ alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i
 alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
 alias del_vim_swaps='find ~/.vim/ -type f -name "*.sw[klmnop]" -delete'
+alias flushdns="sudo -- sh -c 'killall -HUP mDNSResponder; killall mDNSResponderHelper; dscacheutil -flushcache; arp -ad'"
 alias g="git"
 alias gd="git diff"
 # Previously gs would start GhostScript
