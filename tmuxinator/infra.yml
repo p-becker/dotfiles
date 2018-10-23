@@ -1,0 +1,9 @@
+# ~/.tmuxinator/dotfiles.yml
+
+name: infra
+root: ~/zimpel-infrastructure
+
+windows:
+  - vim: nvim
+  - zsh:
+  - tig: tig
