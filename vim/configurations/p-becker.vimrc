@@ -192,6 +192,14 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
+nmap <silent> <leader>tm :call TestMutations()<CR>
+
+" Temporarily install mutant gem, run on current file
+function! TestMutations()
+  let l:mutation_executable = expand(fnameescape(g:dotfiles_path)."/bin/mutest_file")
+  execute 'terminal '.mutation_executable.' '.expand('%')
+  startinsert
+endfunction
 
 " Codewars test framework
 nmap <silent> <leader>tk :call TestKata()<CR>
