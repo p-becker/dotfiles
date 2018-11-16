@@ -72,6 +72,8 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 ### Functions ###
+source "$DOTFILES_PATH/bin/mutest.sh"
+
 # always ls after cd
 function cd() {
     new_directory="$*";
@@ -85,16 +87,6 @@ function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
     zle reset-prompt
-}
-
-# Run mutation gem on passed class name
-function mutest() {
-  /bin/cp -f Gemfile Gemfile.local
-  /bin/cp -f Gemfile.lock Gemfile.local.lock
-  echo "gem 'mutant-rspec', :group => :test" >> Gemfile.local
-  echo "Installing mutant-rspec..."
-  BUNDLE_GEMFILE=Gemfile.local bundle install >/dev/null
-  BUNDLE_GEMFILE=Gemfile.local RAILS_ENV=test bundle exec mutant -r ./config/environment --use rspec $1
 }
 
 ### Misc ###
