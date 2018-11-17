@@ -108,5 +108,10 @@ eval "$(rbenv init -)"
 # Tmuxinator autocompletion
 source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
 
+# kubectl autocompletion
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
 # init fzf
 [ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
