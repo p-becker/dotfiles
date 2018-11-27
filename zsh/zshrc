@@ -38,6 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ### Aliases ###
 alias be="bundle exec"
+alias bel="BUNDLE_GEMFILE=Gemfile.local bundle exec"
 alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
