@@ -293,7 +293,7 @@ exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {'ruby': ['rubocop'], 'typescript': ['tslint']}
 let g:ale_ruby_rubocop_options = '--rails'
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " ---
 
 "nerdtree settings
