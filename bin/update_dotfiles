@@ -9,6 +9,8 @@ brew update
 brew upgrade
 brew cask upgrade
 brew cleanup
+pip2 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 nvim -c PlugUpdate -c quitall
 
 cd $(dirname "$0")
