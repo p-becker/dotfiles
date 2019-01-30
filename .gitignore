@@ -9,3 +9,4 @@ zsh/.zcompdump
 zsh/.zshrc
 *.swp
 vim/wiki
+vendor
