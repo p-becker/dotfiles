@@ -4,6 +4,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # TODO: move into dotfiles folder
 export ZDOTDIR=$DOTFILES_PATH/zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# Docker autocompletion
+curl -fLo "${ZDOTDIR}/.zprezto/modules/completion/external/src/_docker" https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
+compinit
+
 
 ./install_brews
 # Install vim-plug for neovim
