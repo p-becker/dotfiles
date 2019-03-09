@@ -283,7 +283,7 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " ----- PLUGIN SPECIFIC CONFIGURATION -----
 " Gutentags
-let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "docker", "data", ".git", "node_modules", "tmp", "log", "public", "assets"]
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "docker", "data", ".git", "node_modules", "tmp", "log", "public", "assets", "coverage", "*.sql"]
 
 " ale
 " Styling for linter errors
