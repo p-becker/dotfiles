@@ -346,7 +346,8 @@ nmap <leader>mt :LivedownToggle<CR>
 " ------------
 
 " vimwiki
-let g:vimwiki_list = [{'path': fnameescape(dotfiles_path).'/vim/wiki'}]
+let g:vimwiki_list = [{'path': fnameescape(dotfiles_path).'/vim/wiki',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " fzf.vim
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
