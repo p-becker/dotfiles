@@ -44,6 +44,10 @@ bundle install
 xcode-select --install
 npm install -g livedown
 
+mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+curl https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty-completions.zsh > ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+
 echo "---"
 echo "Please link your dotfiles:"
 printf "ln -s $DOTFILES_PATH/zsh/zshrc $DOTFILES_PATH/zsh/.zshrc"

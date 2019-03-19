@@ -12,6 +12,3 @@ brew cleanup
 pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 nvim -c PlugUpdate -c quitall
-
-cd $(dirname "$0")
-update_alacritty

@@ -117,3 +117,6 @@ fi
 
 # init fzf
 [ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
+
+# Alacritty autocompletions
+fpath+=${ZDOTDIR:-~}/.zsh_functions
