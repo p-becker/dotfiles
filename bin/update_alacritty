@@ -1,9 +1,0 @@
-#!/bin/bash -ex
-cd "$(dirname "$0")/.."
-cd alacritty
-git checkout master
-git pull
-rustup override set stable
-rustup update stable
-make app
-cp -r target/release/osx/Alacritty.app /Applications/

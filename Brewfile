@@ -16,3 +16,4 @@ brew "yarn"
 brew "zsh"
 
 cask "chromedriver"
+cask "alacritty"
