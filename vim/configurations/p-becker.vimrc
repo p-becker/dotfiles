@@ -4,14 +4,15 @@ set ignorecase
 " Set default shell to zsh
 set shell=/usr/local/bin/zsh
 
+" Indentation
+filetype plugin indent on    " required, Specify a directory for plugins
+
 " https://github.com/mislav/thoughtbot-dotfiles/blob/master/vimrc
 let vimrc_bundle_file = expand(fnameescape(dotfiles_path)."/vim/configurations/p-becker.vimrc.bundles")
 if filereadable(vimrc_bundle_file)
   exec "source " . g:vimrc_bundle_file
 end
 
-" Indentation
-filetype plugin indent on    " required, Specify a directory for plugins
 "default indent settings
 set shiftwidth=2
 set softtabstop=2
@@ -183,6 +184,7 @@ if has('conceal')
 endif
 
 let mapleader = ","
+let maplocalleader = ","
 " ----- KEYBINDINGS -----
 " No need for ex mode
 nnoremap Q <nop>
