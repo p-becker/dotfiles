@@ -43,9 +43,9 @@ nmap # <Plug>(anzu-sharp)
 set statusline=%{anzu#search_status()}
 
 " Search for trailing whitespace
-nnoremap <leader>wf /\s\+$<CR>
+nmap <leader>wf /\s\+$<CR>
 " Remove all trailing whitespace
-nnoremap <leader>wd :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nmap <leader>wd :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "The reason for this guard is that calling syntax enable multiple times, like when sourcing your .vimrc repeatedly, it will clobber any color highlighting you already have set up. I've seen this clobber NERDTree highlighting, among other things, without the guard.
 if !exists("g:syntax_on")
@@ -186,6 +186,7 @@ let mapleader = ","
 " ----- KEYBINDINGS -----
 " No need for ex mode
 nnoremap Q <nop>
+
 " vim-test
 nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
@@ -349,6 +350,9 @@ nmap <leader>mt :LivedownToggle<CR>
 " vimwiki
 let g:vimwiki_list = [{'path': fnameescape(dotfiles_path).'/vim/wiki',
                        \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
+let g:vimtex_compiler_progname = 'nvr'
 
 " fzf.vim
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
