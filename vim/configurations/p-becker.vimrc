@@ -175,7 +175,8 @@ if has("nvim")
   autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
 
   " Prefer Neovim terminal insert mode to normal mode.
-  autocmd BufEnter term://* startinsert
+  autocmd TermOpen term://* startinsert
+
 endif
 
 " For conceal markers.
@@ -257,11 +258,11 @@ function! WipCommitAndPush()
 endfunction
 
 " Git diff with fugitive
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>dg :Gdiff<CR>
 " -------
 
 " Diff two windows
-nnoremap <leader>d :call ToggleWindoDiff()<cr>
+nnoremap <leader>dw :call ToggleWindoDiff()<cr>
 
 let g:windodiff_open = 0
 
@@ -301,6 +302,7 @@ let g:ale_fixers = {'ruby': ['rubocop'], 'typescript': ['tslint']}
 let g:ale_ruby_rubocop_options = '--rails'
 let g:ale_fix_on_save = 0
 let g:ale_dockerfile_hadolint_use_docker='yes'
+let g:ale_linters = { 'cs': ['OmniSharp'] }
 " ---
 
 "nerdtree settings
@@ -338,8 +340,66 @@ nmap <leader>mt :LivedownToggle<CR>
 "let g:polyglot_disabled = ['elm']
 "let g:elm_detailed_complete = 1
 "let g:elm_format_autosave = 1
-"let g:elm_syntastic_show_warnings = 1
 " -------
+
+" omnisharp-vim
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_highlight_types = 1
+" Use default embedded mono
+let g:OmniSharp_server_use_mono = 0
+
+" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
+nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
+nnoremap <a-cr> :OmniSharpGetCodeActions<CR>
+" Run code actions with text selected in visual mode to extract method
+xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
+xnoremap <a-cr> :call OmniSharp#GetCodeActions('visual')<CR>
+
+" Rename with dialog
+" Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
+nnoremap <leader>r :OmniSharpRename<CR>
+command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+
+nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+nnoremap <Leader>dr :terminal dotnet run
+
+" Start the omnisharp server for the current solution
+"nnoremap <Leader>ss :OmniSharpStartServer<CR>
+"nnoremap <Leader>sp :OmniSharpStopServer<CR>
+
+" Update the highlighting whenever leaving insert mode
+autocmd InsertLeave *.cs call OmniSharp#HighlightBuffer()
+" The following commands are contextual, based on the cursor position.
+autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+
+" Finds members in the current buffer
+autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>lt :OmniSharpTypeLookup<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>ld :OmniSharpDocumentation<CR>
+autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+
+set updatetime=500
+
+sign define OmniSharpCodeActions text=💡
+
+function! OSCountCodeActions() abort
+  if OmniSharp#CountCodeActions({-> execute('sign unplace 99')})
+    let l = getpos('.')[1]
+    let f = expand('%:p')
+    execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+  endif
+endfunction
+
+augroup OSCountCodeActions
+  autocmd!
+  autocmd FileType cs set signcolumn=yes
+  autocmd CursorHold *.cs call OSCountCodeActions()
+augroup END
 
 " coverage.vim
 "let g:coverage_json_report_path = 'coverage/coverage-final.json'
@@ -371,6 +431,8 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+nnoremap <Leader>ot :sp term://zsh<CR>
 
 " FIND STUFF <leader>f
 nnoremap <silent> <leader>ff :Files<CR>

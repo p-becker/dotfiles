@@ -17,6 +17,7 @@ fi
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 export KEYTIMEOUT=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # Installed via homebrew.
 # Hardcoded because `brew --prefix` takes a long time.
 export PATH="/usr/local/sbin:$PATH"

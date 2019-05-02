@@ -48,6 +48,8 @@ endfunction"}}}
 " Close autocomplete menu with Enter
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
+" close preview window on leaving the insert mode
+autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<C-j>"

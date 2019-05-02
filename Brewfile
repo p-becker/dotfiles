@@ -14,6 +14,7 @@ brew "telnet"
 brew "tmux"
 brew "yarn"
 brew "zsh"
+brew "libuv"
 
 cask "chromedriver"
 cask "alacritty"
