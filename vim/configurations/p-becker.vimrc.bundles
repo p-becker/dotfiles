@@ -60,11 +60,13 @@ Plug 'andreshazard/vim-freemarker'
 
 Plug 'airblade/vim-localorie'
 
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 
 Plug 'junegunn/vim-peekaboo'
 
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'lervag/vimtex'
 
 Plug 'machakann/vim-highlightedyank'
 
