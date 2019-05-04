@@ -306,6 +306,9 @@ let g:ale_ruby_rubocop_options = '--rails'
 let g:ale_fix_on_save = 0
 let g:ale_dockerfile_hadolint_use_docker='yes'
 let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:nremap = {"[a": "", "]a": ""}
+nnoremap [a :ALEPreviousWrap<cr>
+nnoremap ]a :ALENextWrap<cr>
 " ---
 
 "nerdtree settings
