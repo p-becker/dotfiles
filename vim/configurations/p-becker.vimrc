@@ -197,6 +197,9 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 nmap <silent> <leader>tm :call TestMutations()<CR>
+" Xunit test runner was removed with xunit 2.4
+let test#csharp#runner = 'dotnettest'
+"let test#csharp#dotnettest#options = '--no-build'
 
 " Temporarily install mutant gem, run on current file
 function! TestMutations()
