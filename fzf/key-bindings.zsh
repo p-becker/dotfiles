@@ -29,12 +29,21 @@ __fzfcmd() {
 fzf-file-widget() {
   LBUFFER="${LBUFFER}$(__fsel)"
   local ret=$?
-  zle redisplay
-  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  zle reset-prompt
   return $ret
 }
 zle     -N   fzf-file-widget
 bindkey '^F' fzf-file-widget
+
+# Ensure precmds are run after cd
+fzf-redraw-prompt() {
+  local precmd
+  for precmd in $precmd_functions; do
+    $precmd
+  done
+  zle reset-prompt
+}
+zle -N fzf-redraw-prompt
 
 # ALT-C - cd into the selected directory
 fzf-cd-widget() {
@@ -48,8 +57,7 @@ fzf-cd-widget() {
   fi
   cd "$dir"
   local ret=$?
-  zle reset-prompt
-  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  zle fzf-redraw-prompt
   return $ret
 }
 zle     -N    fzf-cd-widget
@@ -59,8 +67,8 @@ bindkey '\ec' fzf-cd-widget
 fzf-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  selected=( $(fc -l 1 |
-    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd)) )
+  selected=( $(fc -rl 1 |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
   local ret=$?
   if [ -n "$selected" ]; then
     num=$selected[1]
@@ -68,8 +76,7 @@ fzf-history-widget() {
       zle vi-fetch-history -n $num
     fi
   fi
-  zle redisplay
-  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  zle reset-prompt
   return $ret
 }
 zle     -N   fzf-history-widget
