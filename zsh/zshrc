@@ -15,7 +15,10 @@ fi
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '\!.git/'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export KEYTIMEOUT=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # Installed via homebrew.
@@ -25,13 +28,10 @@ export PATH="/usr/local/opt/neovim/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$DOTFILES_PATH/bin:$PATH"
 export PATH="/usr/local/opt/ctags/bin:$PATH"
-PATH=$PATH:~/go/bin
 PATH=$PATH:/usr/local/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 # Rbenv
-export RBENV_ROOT=~/.rbenv
-export RBENV_SHELL=zsh
 # Directory for tmuxinator configurations
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
 
@@ -110,9 +110,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Init rbenv
-eval "$(rbenv init -)"
-
 # Tmuxinator autocompletion
 source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
 
@@ -122,7 +119,10 @@ if [ $commands[kubectl] ]; then
 fi
 
 # init fzf
-[ -f "$DOTFILES_PATH"/fzf/.fzf.zsh ] && source "$DOTFILES_PATH"/fzf/.fzf.zsh
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/usr/share/bash-completion/completions/fzf" 2> /dev/null
 
-# Alacritty autocompletions
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+# Key bindings
+# ------------
+source "$DOTFILES_PATH/fzf/key-bindings.zsh"
