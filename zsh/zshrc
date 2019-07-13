@@ -35,12 +35,8 @@ export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 # Directory for tmuxinator configurations
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
 
-export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
-
 ### Aliases ###
 alias be="bundle exec"
-alias bel="BUNDLE_GEMFILE=Gemfile.local bundle exec"
 alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
@@ -57,16 +53,12 @@ alias gitzip='git archive HEAD -o ${PWD##*/}.zip'
 alias gs="git status"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
-# Project specific branches
-alias gp2="git push origin $(git rev-parse --abbrev-ref HEAD):stage2 --force"
-alias gp3="git push origin $(git rev-parse --abbrev-ref HEAD):stage3 --force"
-alias kill_mars="docker ps --filter 'name=mars_' -q | xargs docker stop"
-alias rc="bundle exec rails console"
-alias rs="bundle exec rails server"
 alias tags="ctags -R --exclude=.git --exclude=data --exclude=docker --exclude=coverage --exclude=node_modules --exclude=tmp --exclude=log --exclude=public --exclude=assets --exclude=*.sql"
 alias originalrc="/usr/bin/rs"
 alias vi="nvim"
 alias vim="nvim"
+# Fix zprezto? stuff
+unalias ls ln
 
 ### Keybindings ###
 # https://dougblack.io/words/zsh-vi-mode.html
