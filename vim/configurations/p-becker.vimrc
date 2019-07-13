@@ -449,9 +449,9 @@ nnoremap <silent> <leader>f; :BLines<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fh :History<CR>
 
-nnoremap <silent> <leader>a :Ag<CR>
-nnoremap <silent> <leader>A :call SearchWordWithAg()<CR>
-vnoremap <silent> <leader>A :call SearchVisualSelectionWithAg()<CR>
+nnoremap <silent> <leader>a :Rg<CR>
+nnoremap <silent> <leader>A :call SearchWordWithRg()<CR>
+vnoremap <silent> <leader>A :call SearchVisualSelectionWithRg()<CR>
 
 noremap <silent> <leader>fgc :Commits<CR>
 nnoremap <silent> <leader>fgb :BCommits<CR>
@@ -463,11 +463,11 @@ imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 imap <C-x><C-p> <plug>(fzf-complete-path)
 
-function! SearchWordWithAg()
-  execute 'Ag' expand('<cword>')
+function! SearchWordWithRg()
+  execute 'Rg' expand('<cword>')
 endfunction
 
-function! SearchVisualSelectionWithAg() range
+function! SearchVisualSelectionWithRg() range
   let old_reg = getreg('"')
   let old_regtype = getregtype('"')
   let old_clipboard = &clipboard
@@ -476,7 +476,7 @@ function! SearchVisualSelectionWithAg() range
   let selection = getreg('"')
   call setreg('"', old_reg, old_regtype)
   let &clipboard = old_clipboard
-  execute 'Ag' selection
+  execute 'Rg' selection
 endfunction
 
 function! SearchWithAgInDirectory(...)
