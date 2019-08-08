@@ -57,8 +57,6 @@ alias tags="ctags -R --exclude=.git --exclude=data --exclude=docker --exclude=co
 alias originalrc="/usr/bin/rs"
 alias vi="nvim"
 alias vim="nvim"
-# Fix zprezto? stuff
-unalias ls ln
 
 ### Keybindings ###
 # https://dougblack.io/words/zsh-vi-mode.html
@@ -101,6 +99,9 @@ zle -N zle-keymap-select
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+# Fix zprezto? stuff
+unalias ls ln
 
 # Tmuxinator autocompletion
 source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
