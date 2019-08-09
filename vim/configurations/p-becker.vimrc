@@ -287,6 +287,12 @@ map <leader>h :noh<CR>:pc<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Replace current line with current date string
+" mnemonic: Insert Date
+function! InsertDateInCurrentLine()
+  execute ":'<,'>!date +\\%A\\ \\%d.\\%m.\\%Y"
+endfunction
+nnoremap <leader>id :call InsertDateInCurrentLine()<CR>
 
 " ----- PLUGIN SPECIFIC CONFIGURATION -----
 " Gutentags
