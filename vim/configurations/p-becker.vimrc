@@ -2,7 +2,7 @@
 set number
 set ignorecase
 " Set default shell to zsh
-set shell=/usr/local/bin/zsh
+set shell=/bin/zsh
 
 " Indentation
 filetype plugin indent on    " required, Specify a directory for plugins
