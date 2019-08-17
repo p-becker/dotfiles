@@ -357,8 +357,10 @@ nmap <leader>mt :LivedownToggle<CR>
 " omnisharp-vim
 let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_highlight_types = 1
-" Use default embedded mono
-let g:OmniSharp_server_use_mono = 0
+" Use preinstalled mono
+let g:OmniSharp_server_use_mono = 1
+" Opt-in for faster stdio server that works without http+python
+let g:OmniSharp_server_stdio = 1
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
