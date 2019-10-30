@@ -361,6 +361,9 @@ let g:OmniSharp_highlight_types = 1
 let g:OmniSharp_server_use_mono = 1
 " Opt-in for faster stdio server that works without http+python
 let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_start_without_solution = 1
+let g:OmniSharp_server_stdio_quickload = 1
+
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
