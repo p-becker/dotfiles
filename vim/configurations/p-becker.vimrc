@@ -300,8 +300,8 @@ let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "docker", "data", ".gi
 
 " ale
 " Styling for linter errors
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
+"let g:ale_sign_error = '✘'
+"let g:ale_sign_warning = '⚠'
 
 exe 'highlight ALEErrorSign guibg=NONE guifg='.g:terminal_color_9
 exe 'highlight ALEWarningSign guibg=NONE guifg='.g:terminal_color_11
@@ -311,7 +311,6 @@ let g:ale_fixers = {'ruby': ['rubocop'], 'typescript': ['tslint']}
 let g:ale_ruby_rubocop_options = '--rails'
 let g:ale_fix_on_save = 0
 let g:ale_dockerfile_hadolint_use_docker='yes'
-let g:ale_linters = { 'cs': ['OmniSharp'] }
 let g:nremap = {"[a": "", "]a": ""}
 nnoremap [a :ALEPreviousWrap<cr>
 nnoremap ]a :ALENextWrap<cr>
