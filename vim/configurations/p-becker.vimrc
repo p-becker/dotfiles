@@ -381,8 +381,6 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 nnoremap <Leader>dr :terminal dotnet run
 
 " Start the omnisharp server for the current solution
-"nnoremap <Leader>ss :OmniSharpStartServer<CR>
-"nnoremap <Leader>sp :OmniSharpStopServer<CR>
 
 " Update the highlighting whenever leaving insert mode
 autocmd InsertLeave *.cs call OmniSharp#HighlightBuffer()
@@ -399,6 +397,10 @@ autocmd FileType cs nnoremap <buffer> <Leader>lt :OmniSharpTypeLookup<CR>
 autocmd FileType cs nnoremap <buffer> <Leader>ld :OmniSharpDocumentation<CR>
 autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
 autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+" build all
+autocmd FileType cs nnoremap <buffer> <Leader>ba :!dotnet build .<CR>
+" test all WIP
+autocmd FileType cs nnoremap <buffer> <Leader>ta :!dotnet test .<CR>
 
 set updatetime=500
 
