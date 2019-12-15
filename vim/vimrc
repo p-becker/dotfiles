@@ -5,6 +5,7 @@ filetype off                  " required
 
 let default_vimuser = 'p-becker'
 let vimuser = empty($VIMUSER) ? g:default_vimuser : $VIMUSER
+let home_path = $HOME
 let dotfiles_path = $DOTFILES_PATH
 
 function! SwitchProfile()
