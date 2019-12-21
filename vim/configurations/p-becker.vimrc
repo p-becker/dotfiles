@@ -357,10 +357,10 @@ nmap <leader>mt :LivedownToggle<CR>
 " omnisharp-vim
 let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_highlight_types = 1
-" Use system mono
-let g:OmniSharp_server_use_mono = 1
+" Use bundled mono
+let g:OmniSharp_server_use_mono = 0
 " Use preinstalled omnisharp 
-let g:OmniSharp_server_path = expand(fnameescape(home_path)).'/.omnisharp/run'
+let g:OmniSharp_server_path = expand(fnameescape(home_path)).'/.omnisharp/omnisharp/OmniSharp.exe'
 " Opt-in for faster stdio server that works without http+python
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_start_without_solution = 1
