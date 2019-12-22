@@ -364,7 +364,8 @@ let g:OmniSharp_server_path = expand(fnameescape(home_path)).'/.omnisharp/omnish
 " Opt-in for faster stdio server that works without http+python
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_start_without_solution = 1
-let g:OmniSharp_server_stdio_quickload = 1
+" This causes namespace bugs, turn it off!
+let g:OmniSharp_server_stdio_quickload = 0
 
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
