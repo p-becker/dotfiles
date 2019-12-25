@@ -86,19 +86,23 @@ if filereadable(deoplete_config)
   exec "source " . g:deoplete_config
 end
 
-"Plug 'autozimu/LanguageClient-neovim', {
-    "\ 'branch': 'next',
-    "\ 'do': 'bash install.sh',
-    "\ }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 "let g:LanguageClient_autoStop = 0
 "let g:LanguageClient_serverCommands = {
     "\ 'ruby': ['tcp://localhost:7658']
     "\ }
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
-"nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
-"nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
-"nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
+
+Plug 'ionide/Ionide-vim', {
+      \ 'do':  'make fsautocomplete',
+      \}
 
 Plug 'shime/vim-livedown'
 
