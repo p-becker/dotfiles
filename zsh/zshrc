@@ -31,6 +31,7 @@ export PATH="/usr/local/opt/ctags/bin:$PATH"
 PATH=$PATH:/usr/local/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+export PATH="$PATH:$HOME/bin"
 # Rbenv
 # Directory for tmuxinator configurations
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
