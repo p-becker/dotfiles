@@ -113,6 +113,17 @@ if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
 
+# newsboat
+function start_newsboat {
+  if [ ! -f "$HOME/.newsboat/config" ]; then
+    echo "Setting up newsboat..."
+    mkdir "$HOME/.newsboat"
+    ( cd ~/.newsboat && git init && git remote add origin git@github.com:p-becker/newsboat_config.git && git pull origin master )
+  fi
+  /usr/sbin/newsboat
+}
+alias newsboat=start_newsboat
+
 # ssh agent
 SSH_ENV="$HOME/.ssh/environment"
 
