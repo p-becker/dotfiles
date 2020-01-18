@@ -9,7 +9,6 @@ curl -fLo "${ZDOTDIR}/.zprezto/modules/completion/external/src/_docker" https://
 compinit
 
 
-./install_brews
 # Install vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -29,20 +28,20 @@ cp color-schemes/railscasts/base16-railscasts.vim ~/.config/nvim/colors
 cp color-schemes/lucius/lucius.vim ~/.config/nvim/colors
 
 # Iterm colors
-open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
-open color-schemes/lucius/LuciusLight.itermcolors
+#open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
+#open color-schemes/lucius/LuciusLight.itermcolors
 
 # Iterm preferences
 # http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
 # Specify the preferences directory
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$PWD"
+#defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$PWD"
 # Tell iTerm2 to use the custom preferences in the directory
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+#defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 pip3 install neovim
-bundle install
-xcode-select --install
-npm install -g livedown
+#bundle install
+#xcode-select --install
+#npm install -g livedown
 
 mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc

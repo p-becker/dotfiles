@@ -17,7 +17,7 @@ _tmuxinator() {
   return
 }
 
-compdef _tmuxinator tmuxinator mux
+#compdef _tmuxinator tmuxinator mux
 alias mux="tmuxinator"
 
 # Local Variables:
