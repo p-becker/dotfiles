@@ -398,6 +398,8 @@ augroup csharpbindings
   autocmd FileType cs nnoremap <buffer> <Leader>ba :!dotnet build .<CR>
   " test all WIP
   autocmd FileType cs nnoremap <buffer> <Leader>ta :!dotnet test .<CR>
+  " go to definiton with C-]
+  autocmd FileType cs nnoremap <buffer> <C-]> :OmniSharpGotoDefinition<CR>
 augroup end
 
 set updatetime=500
