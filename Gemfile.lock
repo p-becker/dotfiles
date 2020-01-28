@@ -53,7 +53,7 @@ GEM
       xdg (~> 2.2, >= 2.2.3)
     unicode-display_width (1.4.0)
     xdg (2.2.3)
-    yard (0.9.16)
+    yard (0.9.24)
 
 PLATFORMS
   ruby
