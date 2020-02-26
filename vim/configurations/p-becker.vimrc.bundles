@@ -113,4 +113,6 @@ Plug 'honza/vim-snippets'
 let g:UltiSnipsSnippetsDir = "~/.vim/bundle/vim-snippets/snippets"
 
 Plug 'OmniSharp/omnisharp-vim'
+
+Plug 'OrangeT/vim-csharp'
 call plug#end()
