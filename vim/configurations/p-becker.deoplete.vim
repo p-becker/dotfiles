@@ -10,10 +10,6 @@ set shortmess +=c
 " deoplete options
 let g:deoplete#enable_at_startup = 1
 
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-
 " Disable the candidates in Comment/String syntaxes.
 call deoplete#custom#source('_',
             \ 'disabled_syntaxes', ['Comment', 'String'])

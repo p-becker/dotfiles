@@ -1,20 +1,30 @@
 #!/bin/sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# TODO: handle $DOTFILES_PATH not set on first install
-# TODO: move into dotfiles folder
+set -ex
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || true
+
+export DOTFILES_PATH=${DOTFILES_PATH:-$HOME/dotfiles}
 export ZDOTDIR=$DOTFILES_PATH/zsh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+cd $DOTFILES_PATH
+
+# install neovim app image
+sudo curl -fLo /usr/bin/nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && \
+  sudo chmod +x /usr/bin/nvim
+
+# Install packages
+sudo apt-get install python3 python3-pip zsh fzf fzf-zsh-completion tig
+
+# ripgrep
+curl -fLo /tmp/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz && \
+  mkdir /tmp/ripgrep && \
+  tar -xzf /tmp/ripgrep.tar.gz -C /tmp/ripgrep && \
+  sudo cp /tmp/ripgrep/*/rg /usr/bin/rg && \
+  rm -rf /tmp/ripgrep*
+
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" || true
 # Docker autocompletion
 curl -fLo "${ZDOTDIR}/.zprezto/modules/completion/external/src/_docker" https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
-compinit
-
-
-# Install vim-plug for neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim  -c "PlugInstall" -c "qa"
-
-mkdir -p ~/.vim/colors
+#TODO fix
+#compinit
 
 git config --global core.editor $(which nvim)
 git config --global core.excludesfile "$PWD"/.gitignore
@@ -22,39 +32,58 @@ git config --global rerere.enabled true
 git config --global alias.g "grep --break --heading --line-number"
 
 # Vim colors
-mkdir ~/.config/nvim/colors
+mkdir -p ~/.config/nvim/colors
 
 cp color-schemes/railscasts/base16-railscasts.vim ~/.config/nvim/colors
 cp color-schemes/lucius/lucius.vim ~/.config/nvim/colors
 
-# Iterm colors
-#open color-schemes/railscasts/base16-railscasts.dark.256.itermcolors
-#open color-schemes/lucius/LuciusLight.itermcolors
-
-# Iterm preferences
-# http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
-# Specify the preferences directory
-#defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$PWD"
-# Tell iTerm2 to use the custom preferences in the directory
-#defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-
 pip3 install neovim
-#bundle install
-#xcode-select --install
-#npm install -g livedown
+
+# Install vim-plug for neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir -p /$HOME/.omnisharp && \
+  curl -Lo /tmp/omnisharp-roslyn.tar.gz \
+  https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.35.2/omnisharp-linux-x64.tar.gz && \
+  tar -xzf /tmp/omnisharp-roslyn.tar.gz -C $HOME/.omnisharp && \
+  rm /tmp/omnisharp-roslyn.tar.gz
+
+# Install vim-plug for neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install neovim plugins
+nvim +PlugInstall +qall &> /dev/null
+nvim +Omni +qall &> /dev/null
+
+git clone https://github.com/powerline/fonts.git --depth=1 /tmp/powerline-fonts
+/tmp/powerline-fonts/install.sh
+rm -rf /tmp/powerline-fonts
+
+# .net core 3 sdk
+mkdir -p $HOME/dotnet && \
+  curl -Lo /tmp/dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/release/3.1.1xx/dotnet-sdk-latest-linux-musl-x64.tar.gz && \
+  tar -xzf /tmp/dotnet.tar.gz -C $HOME/dotnet && \
+  rm /tmp/dotnet.tar.gz
+
+mkdir ~/.ssh
+
+echo "---"
+echo "Linking dotfiles"
+ln -sf $DOTFILES_PATH/zsh/zshrc $DOTFILES_PATH/zsh/.zshrc
+ln -sf $DOTFILES_PATH/zsh/zshrc ~/.zshrc
+ln -sf $DOTFILES_PATH/tmux/p-becker.conf ~/.tmux.conf
+ln -sf $DOTFILES_PATH/tigrc ~/.tigrc
+ln -sf $DOTFILES_PATH/vim/vimrc ~/.config/nvim/init.vim
+ln -sf $DOTFILES_PATH/zsh/.ctags ~/.ctags
+ln -sf $DOTFILES_PATH/alacritty.yml ~/.alacritty.yml
+echo "---"
+echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
 
 mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
 curl https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty-completions.zsh > ${ZDOTDIR:-~}/.zsh_functions/_alacritty
 
-echo "---"
-echo "Please link your dotfiles:"
-printf "ln -s $DOTFILES_PATH/zsh/zshrc $DOTFILES_PATH/zsh/.zshrc"
-printf "ln -s $DOTFILES_PATH/zsh/zshrc ~/.zshrc"
-printf "ln -s $DOTFILES_PATH/tmux_conf ~/.tmux.conf"
-printf "ln -s $DOTFILES_PATH/tigrc ~/.tigrc"
-printf "ln -s $DOTFILES_PATH/vim/vimrc ~/.config/nvim/init.vim"
-printf "ln -s $DOTFILES_PATH/zsh/.ctags ~/.ctags"
-printf "ln -s $DOTFILES_PATH/alacritty.yml ~/.alacritty.yml"
-echo "---"
-echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
+# switch default shell
+chsh -s /bin/zsh

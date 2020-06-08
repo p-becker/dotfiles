@@ -1,5 +1,5 @@
 ### Exports ###
-export DOTFILES_PATH=~/dotfiles
+export DOTFILES_PATH=$HOME/dotfiles
 export ZDOTDIR="$DOTFILES_PATH/zsh"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -21,6 +21,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export KEYTIMEOUT=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export DOTNET_ROOT=$HOME/dotnet
 # Installed via homebrew.
 # Hardcoded because `brew --prefix` takes a long time.
 export PATH="/usr/local/sbin:$PATH"
@@ -33,7 +34,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$PATH:$HOME/dotnet"
+export PATH="$PATH:$HOME/dotnet/tools"
 # Rbenv
 # Directory for tmuxinator configurations
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
@@ -92,7 +94,7 @@ function zle-line-init zle-keymap-select {
 
 ### Misc ###
 # Better colors
-TERM="xterm-256color"
+#TERM="xterm-256color"
 # Hide user/hostname
 DEFAULT_USER=$USER
 zle -N zle-line-init
@@ -156,3 +158,4 @@ fi
 # Key bindings
 # ------------
 source "$DOTFILES_PATH/fzf/key-bindings.zsh"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
