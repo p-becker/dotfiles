@@ -11,7 +11,11 @@ sudo curl -fLo /usr/bin/nvim https://github.com/neovim/neovim/releases/download/
   sudo chmod +x /usr/bin/nvim
 
 # Install packages
-sudo apt-get install python3 python3-pip zsh fzf fzf-zsh-completion tig
+sudo apt-get install python3 python3-pip zsh tig
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+(cd $HOME && ~/.fzf/install)
 
 # ripgrep
 curl -fLo /tmp/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz && \

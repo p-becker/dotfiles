@@ -159,3 +159,5 @@ fi
 # ------------
 source "$DOTFILES_PATH/fzf/key-bindings.zsh"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+[ -f $DOTFILES_PATH/fzf/.fzf.zsh ] && source $DOTFILES_PATH/fzf/.fzf.zsh
