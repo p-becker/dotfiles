@@ -53,10 +53,6 @@ mkdir -p /$HOME/.omnisharp && \
   tar -xzf /tmp/omnisharp-roslyn.tar.gz -C $HOME/.omnisharp && \
   rm /tmp/omnisharp-roslyn.tar.gz
 
-# Install vim-plug for neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # Install neovim plugins
 nvim +PlugInstall +qall &> /dev/null
 nvim +Omni +qall &> /dev/null
@@ -70,6 +66,12 @@ mkdir -p $HOME/dotnet && \
   curl -Lo /tmp/dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/release/3.1.1xx/dotnet-sdk-latest-linux-musl-x64.tar.gz && \
   tar -xzf /tmp/dotnet.tar.gz -C $HOME/dotnet && \
   rm /tmp/dotnet.tar.gz
+
+# bat, cat with syntax hightlighting
+curl -fLo /tmp/bat.deb --create-dirs \
+  "https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb" && \
+  sudo dpkg -i /tmp/bat.deb && \
+  rm -f /tmp/bat.deb
 
 mkdir ~/.ssh
 
