@@ -151,13 +151,4 @@ else
 fi
 
 # init fzf
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/usr/share/bash-completion/completions/fzf" 2> /dev/null
-
-# Key bindings
-# ------------
-source "$DOTFILES_PATH/fzf/key-bindings.zsh"
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 [ -f $DOTFILES_PATH/fzf/.fzf.zsh ] && source $DOTFILES_PATH/fzf/.fzf.zsh
