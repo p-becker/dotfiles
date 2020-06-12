@@ -111,11 +111,6 @@ fi
 # Tmuxinator autocompletion
 source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
 
-# kubectl autocompletion
-if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
-
 # newsboat
 function start_newsboat {
   if [ ! -f "$HOME/.newsboat/config" ]; then
