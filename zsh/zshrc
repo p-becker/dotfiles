@@ -3,6 +3,7 @@ export DOTFILES_PATH=$HOME/dotfiles
 export ZDOTDIR="$DOTFILES_PATH/zsh"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export BROWSER=w3m
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
  export EDITOR='vim'
