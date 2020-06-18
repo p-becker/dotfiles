@@ -47,8 +47,6 @@ pip3 install neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-./install_omnisharp
-
 # Install neovim plugins
 nvim +PlugInstall +qall &> /dev/null
 nvim +Omni +qall &> /dev/null
