@@ -408,7 +408,17 @@ set updatetime=500
 sign define OmniSharpCodeActions text=💡
 
 function! OSCountCodeActions() abort
-  if OmniSharp#CountCodeActions({-> execute('sign unplace 99')})
+  if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
+  if !OmniSharp#IsServerRunning() | return | endif
+  let opts = {
+        \ 'CallbackCount': function('s:CBReturnCount'),
+        \ 'CallbackCleanup': {-> execute('sign unplace 99')}
+        \}
+  call OmniSharp#actions#codeactions#Count(opts)
+endfunction
+
+function! s:CBReturnCount(count) abort
+  if a:count
     let l = getpos('.')[1]
     let f = expand('%:p')
     execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
