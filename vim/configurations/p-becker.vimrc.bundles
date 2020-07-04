@@ -115,4 +115,7 @@ let g:UltiSnipsSnippetsDir = "~/.vim/bundle/vim-snippets/snippets"
 Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'OrangeT/vim-csharp'
+
+Plug 'uarun/vim-protobuf'
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 call plug#end()
