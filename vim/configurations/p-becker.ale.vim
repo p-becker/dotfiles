@@ -26,7 +26,7 @@ nnoremap ]a :ALENextWrap<cr>
 " https://raw.githubusercontent.com/dense-analysis/ale/master/ale_linters/yaml/yamllint.vim
 " Author: KabbAmine <amine.kabb@gmail.com>
 call ale#Set('yaml_yamllint_executable', 'yamllint')
-call ale#Set('yaml_yamllint_options', '')
+call ale#Set('yaml_yamllint_options', '-d relaxed')
 
 
 call ale#linter#Define('yaml', {
