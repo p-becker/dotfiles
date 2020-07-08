@@ -41,7 +41,7 @@ mkdir -p ~/.config/nvim/colors
 cp color-schemes/railscasts/base16-railscasts.vim ~/.config/nvim/colors
 cp color-schemes/lucius/lucius.vim ~/.config/nvim/colors
 
-pip3 install neovim
+pip3 install --user neovim yamllint
 
 # Install vim-plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -78,6 +78,7 @@ ln -sf $DOTFILES_PATH/tigrc ~/.tigrc
 ln -sf $DOTFILES_PATH/vim/vimrc ~/.config/nvim/init.vim
 ln -sf $DOTFILES_PATH/zsh/.ctags ~/.ctags
 ln -sf $DOTFILES_PATH/alacritty.yml ~/.alacritty.yml
+ln -sf $DOTFILES_PATH/vim/autoload ~/.config/nvim/autoload
 echo "---"
 echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
 
