@@ -41,6 +41,8 @@ export PATH="$HOME/.omnisharp/bin:$PATH"
 # Rbenv
 # Directory for tmuxinator configurations
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
+# Use vcXsrv for gui applications
+export DISPLAY=$(ip route | awk '{print $3; exit}'):0
 
 ### Aliases ###
 alias be="bundle exec"
@@ -60,6 +62,9 @@ alias gitzip='git archive HEAD -o ${PWD##*/}.zip'
 alias gs="git status"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
+alias remount="sudo mount -t drvfs C: /mnt/c"
+alias repos="cd /mnt/c/Users/beckerph/Source/Repos"
+alias settings="vim /mnt/c/Users/beckerph/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 alias tags="ctags -R --exclude=.git --exclude=data --exclude=docker --exclude=coverage --exclude=node_modules --exclude=tmp --exclude=log --exclude=public --exclude=assets --exclude=*.sql"
 alias originalrc="/usr/bin/rs"
 alias vi="nvim"
