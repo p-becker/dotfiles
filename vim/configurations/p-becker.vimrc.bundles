@@ -66,13 +66,13 @@ Plug 'junegunn/vim-peekaboo'
 
 "Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'HerringtonDarkholme/yats.vim'
 
-Plug 'mhartington/nvim-typescript'
+"Plug 'mhartington/nvim-typescript'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
