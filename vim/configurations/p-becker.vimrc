@@ -57,7 +57,6 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let test#strategy = "basic"
-let test#ruby#rspec#executable = 'bin/rspec'
 
 " Split down and to the right
 set splitbelow
@@ -86,16 +85,6 @@ let g:terminal_color_13 = '#D7AFAF' " #D7AFAF'
 let g:terminal_color_14 = '#5FD7D7' " #5FD7D7'
 let g:terminal_color_15 = '#3A3A3A' " #3A3A3A'
 " ------
-
-" yank to clipboard
-" http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-
-  if has("unnamedplus") " X11 support
-    set clipboard+=unnamedplus
-  endif
-endif
 
 " Improve performance
 set nocursorline
@@ -144,9 +133,6 @@ function! s:checkForLnum() abort
     endif
 endfunction
 
-" Syntax highlighting for .thor files
-autocmd BufNewFile,BufRead *.thor set syntax=ruby
-
 " Update ctags upon save
 "let ctags_command = 'ctags -R'
 "autocmd BufWritePost *.rb,*.js,*.jsx,*.elm,*.java call jobstart(ctags_command)
@@ -156,8 +142,6 @@ function! SearchHlClear()
   let @/ = ''
 endfunction
 autocmd BufWritePost * call SearchHlClear()
-
-let ruby_space_errors = 1
 
 " Terminal mode improvements
 " https://stackoverflow.com/questions/44002912/how-to-scroll-the-terminal-emulator-in-neovim
@@ -172,10 +156,10 @@ if has("nvim")
   tnoremap <C-l> <C-\><C-N><C-w>l
 
   " I like relative numbering when in normal mode.
-  autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+  "autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
 
   " Prefer Neovim terminal insert mode to normal mode.
-  autocmd TermOpen term://* startinsert
+  "autocmd TermOpen term://* startinsert
 
 endif
 
@@ -201,20 +185,6 @@ nmap <silent> <leader>tm :call TestMutations()<CR>
 let test#csharp#runner = 'dotnettest'
 "let test#csharp#dotnettest#options = '--no-build'
 
-" Temporarily install mutant gem, run on current file
-function! TestMutations()
-  let l:mutation_executable = expand(fnameescape(g:dotfiles_path)."/bin/mutest_file")
-  execute 'terminal '.mutation_executable.' '.expand('%')
-  startinsert
-endfunction
-
-" Codewars test framework
-nmap <silent> <leader>tk :call TestKata()<CR>
-
-function! TestKata()
-  execute "vsplit | terminal ruby % | lynx --stdin"
-endfunction
-
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
@@ -234,9 +204,6 @@ inoremap <A-l> <C-o>l
 nnoremap <A-h> :tabp<CR>
 nnoremap <A-l> :tabn<CR>
 
-" Run current file in interactive ruby shell
-" nnoremap <leader>ri :!irb -r %:p<CR>
-" Save in one keypress
 nnoremap <F6> :update<cr>
 inoremap <F6> <Esc>:update<cr>
 
@@ -286,13 +253,6 @@ map <leader>h :noh<CR>:pc<cr>
 " Search and replace
 nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" Replace current line with current date string
-" mnemonic: Insert Date
-function! InsertDateInCurrentLine()
-  execute ":'<,'>!date +\\%A\\ \\%d.\\%m.\\%Y"
-endfunction
-nnoremap <leader>id :call InsertDateInCurrentLine()<CR>
-
 " ----- PLUGIN SPECIFIC CONFIGURATION -----
 " Gutentags
 let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "docker", "data", ".git", "node_modules", "tmp", "log", "public", "assets", "coverage", "*.sql"]
@@ -310,7 +270,7 @@ let g:NERDTreeMinimalUI=1
 
 " vim-yankstack
 " Must happen before any mapping involving y,d,c,p etc
-call yankstack#setup()
+"call yankstack#setup()
 " Position cursor AFTER last pasted character, not on it
 noremap p gp
 noremap P gP
@@ -323,23 +283,6 @@ nmap <Leader>P <Plug>yankstack_substitute_newer_paste
 "make Y consistent with C and D
 nnoremap Y y$
 " -------------
-
-" vim-localorie
-nnoremap <silent> <leader>lt :call localorie#translate()<CR>
-nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
-" -------------
-
-" vim-livedown
-nmap <leader>mp :LivedownPreview<CR>
-nmap <leader>mt :LivedownToggle<CR>
-" ------------
-
-" elm-vim
-" Only needed when polyglot is used
-"let g:polyglot_disabled = ['elm']
-"let g:elm_detailed_complete = 1
-"let g:elm_format_autosave = 1
-" -------
 
 " omnisharp-vim
 let g:OmniSharp_selector_ui = 'fzf'
@@ -414,21 +357,6 @@ augroup OSCountCodeActions
   autocmd CursorHold *.cs call OSCountCodeActions()
 augroup END
 
-" coverage.vim
-"let g:coverage_json_report_path = 'coverage/coverage-final.json'
-"let g:coverage_sign_covered = '⦿'
-"let g:coverage_interval = 5000
-"let g:coverage_show_covered = 0
-"let g:coverage_show_uncovered = 1
-" ------------
-
-" vimwiki
-let g:vimwiki_list = [{'path': fnameescape(dotfiles_path).'/vim/wiki',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
-let g:vimtex_compiler_progname = 'nvr'
-
 " fzf.vim
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
@@ -445,14 +373,11 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-nnoremap <Leader>ot :sp term://zsh<CR>
-
 " FIND STUFF <leader>f
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fw :Windows<CR>
 nnoremap <silent> <leader>f; :BLines<CR>
-" nnoremap <silent> <leader>o :BTags<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fh :History<CR>
 
@@ -462,9 +387,6 @@ vnoremap <silent> <leader>A :call SearchVisualSelectionWithRg()<CR>
 
 noremap <silent> <leader>fgc :Commits<CR>
 nnoremap <silent> <leader>fgb :BCommits<CR>
-" Currently unused and should be remapped to prevent slowing down
-" <leader>f
-" nnoremap <silent> <leader>ft :Filetypes<CR>
 
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
@@ -486,10 +408,10 @@ function! SearchVisualSelectionWithRg() range
   execute 'Rg' selection
 endfunction
 
-function! SearchWithAgInDirectory(...)
-  call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
-endfunction
-command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>)
+"function! SearchWithAgInDirectory(...)
+  "call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
+"endfunction
+"command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>)
 
 " fzf configuration
 execute "source ".fnameescape(dotfiles_path)."/vim/fzf.vim"

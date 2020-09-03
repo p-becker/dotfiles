@@ -8,39 +8,9 @@ let vimuser = empty($VIMUSER) ? g:default_vimuser : $VIMUSER
 let home_path = $HOME
 let dotfiles_path = $DOTFILES_PATH
 
-function! SwitchProfile()
-    if(g:vimuser == g:default_vimuser)
-      let g:vimuser = "majesticuser"
-      "let g:vimuser = "sebashwa"
-    else
-      let g:vimuser = g:default_vimuser
-    end
-
-    let l:tmux_conf       = expand(fnameescape(g:dotfiles_path)).'/tmux/'.g:vimuser.'.conf'
-    let l:language_script = expand(fnameescape(g:dotfiles_path)).'/scripts/switch_input_language.scpt'
-    let l:vimsession           = expand(fnameescape(g:dotfiles_path)).'/vim/Session.vim'
-    " let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/configurations/'.g:vimuser.'.vimrc'
-    let l:vimrc           = expand(fnameescape(g:dotfiles_path)).'/vim/vimrc'
-
-    "exec "source " . l:vimrc
-    "silent exec '!tmux source-file ' . l:tmux_conf
-    silent exec '!osascript ' . l:language_script
-    " Refresh status to display the changed keyboard layout
-    "silent exec '!tmux refresh-client -S'
-    silent exec '!scripts/switch_tmux '.l:tmux_conf.' '.g:vimuser.' '.l:vimsession.' '.l:vimrc
-    "silent exec "!tmux new-window 'VIMUSER=".g:vimuser." nvim -S ".l:vimsession." -u ".l:vimrc."'"
-    :xa
-endfunction
-
-" Interactive preview for commands
-set inccommand=split
-
 " Improve session handling
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
-
-" Save session when exiting
-au VimLeave * execute 'mksession! '.fnameescape(g:dotfiles_path).'/vim/Session.vim'
 
 " undo settings
 " https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
@@ -64,5 +34,3 @@ set directory=~/.vim/swapfiles//
 
 " Source user configuration
 execute 'source '.fnameescape(g:dotfiles_path).'/vim/configurations/'.vimuser.'.vimrc'
-
-map <leader>m :call SwitchProfile()<CR>

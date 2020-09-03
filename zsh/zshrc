@@ -82,22 +82,22 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 ### Functions ###
-source "$DOTFILES_PATH/bin/mutest.sh"
+#source "$DOTFILES_PATH/bin/mutest.sh"
 
 # always ls after cd
-function cd() {
-    new_directory="$*";
-    if [ $# -eq 0 ]; then
-        new_directory=${HOME};
-    fi;
-    builtin cd "${new_directory}" && ls
-}
+#function cd() {
+    #new_directory="$*";
+    #if [ $# -eq 0 ]; then
+        #new_directory=${HOME};
+    #fi;
+    #builtin cd "${new_directory}" && ls
+#}
 
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-    zle reset-prompt
-}
+#function zle-line-init zle-keymap-select {
+    #VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    #RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    #zle reset-prompt
+#}
 
 ### Misc ###
 # Better colors
@@ -116,18 +116,18 @@ fi
 #unalias ls ln
 
 # Tmuxinator autocompletion
-source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
+#source "$DOTFILES_PATH/tmuxinator/tmuxinator.zsh"
 
 # newsboat
-function start_newsboat {
-  if [ ! -f "$HOME/.newsboat/config" ]; then
-    echo "Setting up newsboat..."
-    mkdir "$HOME/.newsboat"
-    ( cd ~/.newsboat && git init && git remote add origin git@github.com:p-becker/newsboat_config.git && git pull origin master )
-  fi
-  /usr/sbin/newsboat
-}
-alias newsboat=start_newsboat
+#function start_newsboat {
+  #if [ ! -f "$HOME/.newsboat/config" ]; then
+    #echo "Setting up newsboat..."
+    #mkdir "$HOME/.newsboat"
+    #( cd ~/.newsboat && git init && git remote add origin git@github.com:p-becker/newsboat_config.git && git pull origin master )
+  #fi
+  #/usr/sbin/newsboat
+#}
+#alias newsboat=start_newsboat
 
 # ssh agent
 SSH_ENV="$HOME/.ssh/environment"

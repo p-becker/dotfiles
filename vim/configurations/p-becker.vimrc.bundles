@@ -15,37 +15,15 @@ Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
 
-"Plug 'ruanyl/coverage.vim'
-
 Plug 'janko-m/vim-test'
 
 Plug 'tpope/vim-fugitive'
-
-Plug 'benmills/vimux'
-
-Plug 'tpope/vim-dispatch'
-
-Plug 'pangloss/vim-javascript'
-
-Plug 'mxw/vim-jsx'
 
 Plug 'tpope/vim-unimpaired'
 
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'vim-ruby/vim-ruby'
-
-Plug 'tpope/vim-rails'
-
-Plug 'tpope/vim-rbenv'
-
-Plug 'tpope/vim-bundler'
-
 Plug 'KeitaNakamura/neodark.vim'
-
-"Plug 'elmcast/elm-vim'
-
-Plug 'mdxprograms/elm-vim'
 
 Plug 'vim-airline/vim-airline'
 
@@ -60,19 +38,9 @@ Plug 'andreshazard/vim-freemarker'
 
 Plug 'airblade/vim-localorie'
 
-"Plug 'vimwiki/vimwiki'
-
 Plug 'junegunn/vim-peekaboo'
 
-"Plug 'ludovicchabant/vim-gutentags'
-
-"Plug 'lervag/vimtex'
-
 Plug 'machakann/vim-highlightedyank'
-
-Plug 'HerringtonDarkholme/yats.vim'
-
-"Plug 'mhartington/nvim-typescript'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -86,26 +54,7 @@ if filereadable(deoplete_config)
   exec "source " . g:deoplete_config
 end
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-"let g:LanguageClient_autoStop = 0
-"let g:LanguageClient_serverCommands = {
-    "\ 'ruby': ['tcp://localhost:7658']
-    "\ }
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> ,r :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> ,fs :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> ,fr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> ,vd :call LanguageClient#textDocument_hover()<CR>
-
-Plug 'ionide/Ionide-vim', {
-      \ 'do':  'make fsautocomplete',
-      \}
-
-Plug 'shime/vim-livedown'
-
+" search count
 Plug 'osyo-manga/vim-anzu'
 
 Plug 'SirVer/ultisnips'
@@ -116,6 +65,6 @@ Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'OrangeT/vim-csharp'
 
-Plug 'uarun/vim-protobuf'
-Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+"Plug 'uarun/vim-protobuf'
+"Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 call plug#end()
