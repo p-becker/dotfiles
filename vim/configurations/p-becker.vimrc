@@ -286,6 +286,7 @@ nnoremap Y y$
 
 " omnisharp-vim
 let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_selector_findusages = 'fzf'
 let g:OmniSharp_highlight_types = 1
 " Opt-in for faster stdio server that works without http+python
 let g:OmniSharp_server_stdio = 1
@@ -321,6 +322,13 @@ augroup csharpbindings
   autocmd FileType cs nnoremap <buffer> <Leader>ld :OmniSharpDocumentation<CR>
   autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
   autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+  " CTRL broken?
+  let g:OmniSharp_popup_mappings = {
+        \ 'sigNext': '<a-j>',
+        \ 'sigPrev': '<a-k>',
+        \ 'lineDown': ['<a-e>', 'j'],
+        \ 'lineUp': ['<a-y>', 'k']
+        \}
   " build all
   autocmd FileType cs nnoremap <buffer> <Leader>ba :!dotnet build .<CR>
   " test all WIP
