@@ -49,14 +49,16 @@ alias be="bundle exec"
 alias colours='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 alias cop="bundle exec rubocop --rails --display-cop-names"
 alias ctags="/usr/local/opt/ctags/bin/ctags"
-alias dc="bin/compose local development"
-alias dcu="dc pull && dc down && dc up"
 alias del_vim_swaps='find ~/.vim/ -type f -name "*.sw[klmnop]" -delete'
+alias dive="docker run --rm -it \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    wagoodman/dive:latest"
 alias disable_mouse_accel='defaults write .GlobalPreferences com.apple.mouse.scaling -1'
 alias dps="docker ps --format '{{.Names}}'"
 alias flushdns="sudo -- sh -c 'killall -HUP mDNSResponder; killall mDNSResponderHelper; dscacheutil -flushcache; arp -ad'"
 alias g="git"
 alias gd="git diff"
+alias gut="git rm -r --cached . && git add . && git commit -m 'Remove gitignored files, Fix line endings'"
 alias gitzip='git archive HEAD -o ${PWD##*/}.zip'
 # Previously gs would start GhostScript
 alias gs="git status"
