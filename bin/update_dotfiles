@@ -4,11 +4,5 @@ cd "$(dirname "$0")/.."
 git pull --recurse-submodules
 git submodule update --recursive --remote
 #update_ruby_version
-bundle update
-brew update
-brew upgrade
-brew cask upgrade
-brew cleanup
-pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 nvim -c PlugUpdate -c quitall
