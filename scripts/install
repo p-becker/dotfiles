@@ -11,11 +11,8 @@ sudo curl -fLo /usr/bin/nvim https://github.com/neovim/neovim/releases/download/
   sudo chmod +x /usr/bin/nvim
 
 # Install packages
-sudo apt-get install python3 python3-pip zsh tig
-
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-(cd $HOME && ~/.fzf/install)
+sudo apt-get update
+sudo apt-get install python3 python3-pip zsh tig fzf
 
 # ripgrep
 curl -fLo /tmp/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz && \
@@ -55,12 +52,6 @@ git clone https://github.com/powerline/fonts.git --depth=1 /tmp/powerline-fonts
 /tmp/powerline-fonts/install.sh
 rm -rf /tmp/powerline-fonts
 
-# .net core 3 sdk
-mkdir -p $HOME/dotnet && \
-  curl -Lo /tmp/dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/release/3.1.1xx/dotnet-sdk-latest-linux-musl-x64.tar.gz && \
-  tar -xzf /tmp/dotnet.tar.gz -C $HOME/dotnet && \
-  rm /tmp/dotnet.tar.gz
-
 # bat, cat with syntax hightlighting
 curl -fLo /tmp/bat.deb --create-dirs \
   "https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb" && \
@@ -85,6 +76,10 @@ echo "If your shell looks weird, install_powerline_fonts.sh is your friend."
 mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
 curl https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty-completions.zsh > ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+
+# git
+git config --global user.name "Philip Becker"
+git config --global user.email "5217298+p-becker@users.noreply.github.com"
 
 # switch default shell
 chsh -s /bin/zsh
