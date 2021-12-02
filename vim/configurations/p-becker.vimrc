@@ -308,7 +308,7 @@ augroup csharpbindings
   autocmd Filetype cs nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
   autocmd Filetype cs nnoremap <Leader>dr :terminal dotnet run
   " Update the highlighting whenever leaving insert mode
-  autocmd InsertLeave *.cs call OmniSharp#HighlightBuffer()
+  "autocmd InsertLeave *.cs call OmniSharp#HighlightBuffer()
   " The following commands are contextual, based on the cursor position.
   autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
   autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
