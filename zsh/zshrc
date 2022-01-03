@@ -43,6 +43,8 @@ export PATH="$HOME/.omnisharp/bin:$PATH"
 export TMUXINATOR_CONFIG="$DOTFILES_PATH/tmuxinator"
 # Use vcXsrv for gui applications
 export DISPLAY=$(ip route | awk '{print $3; exit}'):0
+# use nvim for man
+export MANPAGER='nvim +Man!'
 
 ### Aliases ###
 alias be="bundle exec"
