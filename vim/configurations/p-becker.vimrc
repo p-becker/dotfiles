@@ -3,6 +3,8 @@ set number
 set ignorecase
 " Set default shell to zsh
 set shell=/bin/zsh
+" yank to system clipboard
+set clipboard=unnamedplus
 
 " Indentation
 filetype plugin indent on    " required, Specify a directory for plugins
