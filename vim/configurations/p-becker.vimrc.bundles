@@ -7,6 +7,7 @@ call plug#begin(expand(fnameescape(g:home_path)).'/.vim/bundle')
 " Define bundles via Github repos
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -67,4 +68,6 @@ Plug 'OrangeT/vim-csharp'
 
 "Plug 'uarun/vim-protobuf'
 "Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+Plug 'adamclerk/vim-razor'
 call plug#end()
+

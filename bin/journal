@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# journal.sh
+# ==========
+#
+# One daily text file to rule them all.
+#
+# Copyright: 2022 Tyler Cipriani <tyler@tylercipriani.com
+# License: GPLv3
+
+set -euo pipefail
+
+DATE="$(date --iso-8601=date)"
+DATETIME="$(date --iso-8601=seconds)"
+
+BASE="$HOME"/journal/markdown
+WEBROOT="$HOME"/journal/html
+
+mkdir -p "$BASE"
+mkdir -p "$WEBROOT"
+
+DAILY="$BASE"/"$DATE".md
+DAILY_HTML="$WEBROOT"/"$DATE".html
+
+has?() {
+    command -v "$@" &> /dev/null
+}
+insert() {
+    echo "$@" >> "$DAILY"
+}
+
+if [ ! -f "$DAILY" ]; then
+    insert '---'
+    insert "title: ${DATETIME}"
+    insert "created: ${DATETIME}"
+    insert '---'
+
+    insert ''
+fi
+
+nvim -c 'Goyo' '+normal Go' "$DAILY"
+has? pandoc && pandoc -s -f markdown -t html5 -o "$DAILY_HTML" "$DAILY" || :

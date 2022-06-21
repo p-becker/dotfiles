@@ -159,12 +159,6 @@ fi
 # init fzf
 [ -f $DOTFILES_PATH/fzf/.fzf.zsh ] && source $DOTFILES_PATH/fzf/.fzf.zsh
 
-# docker wsl2
-#DOCKER_RUNNING=`ps aux | grep dockerd | grep -v grep`
-#if [ -z "$DOCKER_RUNNING" ]; then
-    #sudo dockerd &
-    #disown
-#fi
 DOCKER_DISTRO="Ubuntu-18.04"
 DOCKER_DIR=/mnt/wsl/shared-docker
 DOCKER_SOCK="$DOCKER_DIR/docker.sock"
