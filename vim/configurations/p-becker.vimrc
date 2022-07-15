@@ -165,11 +165,6 @@ if has("nvim")
 
 endif
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
 let mapleader = ","
 let maplocalleader = ","
 " ----- KEYBINDINGS -----
